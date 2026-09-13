@@ -12,3 +12,12 @@ runpod_worker_comfy:
   upscale_models: models/upscale_models/
   vae: models/vae/
   unet: models/unet/
+  # H3 lives under diffusion_models / text_encoders / vae on this volume.
+  # SeedVR2 4K (native ComfyUI v0.30.1, not numz custom nodes) also uses
+  # those folders — do not put weights in upscale_models:
+  #   models/diffusion_models/seedvr2_3b_int8_convrot.safetensors
+  #   models/vae/seedvr2_ema_vae_fp16.safetensors
+  # Listing stills are not models: vesta_start.sh maps
+  #   /runpod-volume/input -> /comfyui/input/volume
+  # Production MP4s persist at /runpod-volume/output/vesta (not the whole
+  # Comfy output directory).

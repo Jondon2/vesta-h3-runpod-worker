@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "fail_closed": [
+    "morphing",
+    "object_count",
+    "geometry_drift",
+    "ending_composition"
+  ],
+  "categories": [
+    {
+      "id": "camera_motion",
+      "name": "Camera motion",
+      "checks": [
+        "Move matches the named preset (dolly, slider, arc, pedestal, reveal, glide, pass).",
+        "No sudden jumps, whip-pans, or snap zooms.",
+        "Ease-in / ease-out present; hold exists at the end.",
+        "Only one primary move per shot."
+      ]
+    },
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "checks": [
+        "Wall planes, openings, and ceiling/floor junctions match the input still.",
+        "Window placement and mullion count stable.",
+        "No invented rooms or disappearing architecture."
+      ]
+    },
+    {
+      "id": "furniture_rigidity",
+      "name": "Furniture rigidity",
+      "checks": [
+        "Sofas, tables, beds, and casegoods keep their silhouette.",
+        "No melting legs, stretching cushions, or sliding pieces."
+      ]
+    },
+    {
+      "id": "object_count",
+      "name": "Object count",
+      "fail_closed": true,
+      "checks": [
+        "No duplicated lamps, chairs, rugs, or art.",
+        "No vanished hero objects that existed in the first frame."
+      ]
+    },
+    {
+      "id": "geometry_drift",
+      "name": "Geometry drift",
+      "fail_closed": true,
+      "checks": [
+        "Room volume does not slowly shear or inflate.",
+        "Vanishing points stay consistent with a real camera path."
+      ]
+    },
+    {
+      "id": "morphing",
+      "name": "Morphing",
+      "fail_closed": true,
+      "checks": [
+        "No object-to-object morphs.",
+        "No face-like or organic melting on millwork or upholstery."
+      ]
+    },
+    {
+      "id": "texture_consistency",
+      "name": "Texture consistency",
+      "checks": [
+        "Wood grain, stone, fabric weave, and metal remain the same materials.",
+        "No texture swimming, crawling grout, or pattern teleport."
+      ]
+    },
+    {
+      "id": "lighting_consistency",
+      "name": "Lighting consistency",
+      "checks": [
+        "Key direction and color temperature match the still.",
+        "Practicals do not pop on/off.",
+        "No new unexplained light sources."
+      ]
+    },
+    {
+      "id": "exposure_flicker",
+      "name": "Exposure flicker",
+      "checks": [
+        "No frame-to-frame pumping.",
+        "Windows do not strobe.",
+        "SeedVR2 4K pass must not reintroduce flicker."
+      ]
+    },
+    {
+      "id": "ending_composition",
+      "name": "Ending composition",
+      "fail_closed": true,
+      "checks": [
+        "Designed ending is present: hero hold, fade (post), branded end-card, or CTA hold.",
+        "Last second is stable enough to slate or overlay type.",
+        "Campaign Shot B lands on the intended last_frame when FL2VA was used."
+      ]
+    },
+    {
+      "id": "luxury_taste",
+      "name": "Overall luxury / taste quality",
+      "fail_closed": false,
+      "checks": [
+        "Reads as high-end real-estate cinematography, not a toy camera.",
+        "Materials look expensive and physical.",
+        "Nothing campy, cartoon, or over-sharpened after 4K."
+      ]
+    }
+  ]
+}

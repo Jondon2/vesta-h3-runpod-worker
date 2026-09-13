@@ -1,0 +1,293 @@
+{
+  "version": 1,
+  "fps": 24,
+  "defaults": {
+    "fps": 24,
+    "recommended_steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "denoise": 1.0,
+    "seed": 1,
+    "audio": false,
+    "upscale_in_graph": false,
+    "native_short_edge_px": 768
+  },
+  "geometry_lock_prompt": "Preserve original architectural geometry, wall planes, window placement, and furniture layout exactly. Keep sofas, tables, lamps, and decor rigid with consistent materials, textures, and lighting. No morphing, no warping, no geometry drift, no duplicated furniture or objects, no texture swimming, no exposure flicker, no sudden camera jumps.",
+  "input_image": {
+    "method": "network_volume_loadimage",
+    "volume_id": "34m0r6jazp",
+    "volume_path": "/runpod-volume/input/{listing_id}{ext}",
+    "comfy_loadimage_name": "volume/{listing_id}{ext}",
+    "forbid_mcp_base64": true,
+    "preserve_original_pixels": true
+  },
+  "resolution_catalog": {
+    "16:9": { "generate": [1344, 768], "deliver_4k": [3840, 2160] },
+    "3:2": { "generate": [1152, 768], "deliver_4k": [3840, 2560] },
+    "9:16": { "generate": [768, 1344], "deliver_4k": [2160, 3840] },
+    "1:1": { "generate": [768, 768], "deliver_4k": [2160, 2160] }
+  },
+  "presets": [
+    {
+      "id": "hero-push-in",
+      "name": "Hero Push-In",
+      "camera_prompt": "Slow controlled cinematic dolly forward on a locked nodal path through the same room as the input image. Constant speed, no acceleration spike. Subtle natural parallax only from true camera translation. Architecture and furniture stay fixed in world space.",
+      "geometry_lock_prompt": "Preserve original architectural geometry, wall planes, window placement, and furniture layout exactly. Keep sofas, tables, lamps, and decor rigid with consistent materials, textures, and lighting. No morphing, no warping, no geometry drift, no duplicated furniture or objects, no texture swimming, no exposure flicker, no sudden camera jumps.",
+      "ending_instructions": "Ease the camera to a complete stop and hold the final hero composition for the last 1 second. Do not fade, cut, or morph into a different room.",
+      "duration_seconds": 10.13,
+      "frame_count": 243,
+      "fps": 24,
+      "recommended_steps": 20,
+      "sampler": "res_multistep",
+      "scheduler": "simple",
+      "resolution_rules": {
+        "generate_default": [1344, 768],
+        "generate_3x2": [1152, 768],
+        "short_edge_px": 768,
+        "forbid_native_4k": true,
+        "delivery_16x9": [3840, 2160]
+      },
+      "intended_use_case": "Default 10-second listing hero. Establishing into a slow push toward the main seating or view.",
+      "expected_output_structure": {
+        "beats": ["establishing", "interactive_move", "hero_focus", "hold_ending"],
+        "files": ["vesta/Vesta_H3_hero-push-in_00001_.mp4"],
+        "shots": 1,
+        "workflow": "workflows/i2v_10s.json"
+      }
+    },
+    {
+      "id": "lateral-parallax",
+      "name": "Lateral Parallax",
+      "camera_prompt": "Horizontal slider left-to-right at constant height, track parallel to the back wall. Window mullions, sofa edges, and rug borders keep rigid perspective. Parallax comes only from lateral translation, not from warping the room.",
+      "geometry_lock_prompt": "Preserve original architectural geometry, wall planes, window placement, and furniture layout exactly. Keep sofas, tables, lamps, and decor rigid with consistent materials, textures, and lighting. No morphing, no warping, no geometry drift, no duplicated furniture or objects, no texture swimming, no exposure flicker, no sudden camera jumps.",
+      "ending_instructions": "Decelerate to a dead stop on a balanced wide-lateral frame and hold 1 second. No whip-pan, no fade.",
+      "duration_seconds": 10.13,
+      "frame_count": 243,
+      "fps": 24,
+      "recommended_steps": 20,
+      "sampler": "res_multistep",
+      "scheduler": "simple",
+      "resolution_rules": {
+        "generate_default": [1344, 768],
+        "generate_3x2": [1152, 768],
+        "short_edge_px": 768,
+        "forbid_native_4k": true,
+        "delivery_16x9": [3840, 2160]
+      },
+      "intended_use_case": "Long facades, kitchen runs, gallery walls, and rooms that read better as a lateral reveal than a push-in.",
+      "expected_output_structure": {
+        "beats": ["establishing", "lateral_move", "settle", "hold_ending"],
+        "files": ["vesta/Vesta_H3_lateral-parallax_00001_.mp4"],
+        "shots": 1,
+        "workflow": "workflows/i2v_10s.json"
+      }
+    },
+    {
+      "id": "lounge-arc",
+      "name": "Lounge Arc",
+      "camera_prompt": "Gentle 20 to 30 degree orbit around the seating group. Camera stays level. Radius constant. No boom, no roll, no dolly-in during the arc. Furniture pivots in perspective only as a true orbit would.",
+      "geometry_lock_prompt": "Preserve original architectural geometry, wall planes, window placement, and furniture layout exactly. Keep sofas, tables, lamps, and decor rigid with consistent materials, textures, and lighting. No morphing, no warping, no geometry drift, no duplicated furniture or objects, no texture swimming, no exposure flicker, no sudden camera jumps.",
+      "ending_instructions": "Complete the arc and hold the three-quarter hero of the lounge for 1 second. Do not keep spinning.",
+      "duration_seconds": 10.13,
+      "frame_count": 243,
+      "fps": 24,
+      "recommended_steps": 20,
+      "sampler": "res_multistep",
+      "scheduler": "simple",
+      "resolution_rules": {
+        "generate_default": [1344, 768],
+        "generate_3x2": [1152, 768],
+        "short_edge_px": 768,
+        "forbid_native_4k": true,
+        "delivery_16x9": [3840, 2160]
+      },
+      "intended_use_case": "Living rooms and conversation groups where the furniture arrangement is the product.",
+      "expected_output_structure": {
+        "beats": ["establishing", "orbit", "hero_focus", "hold_ending"],
+        "files": ["vesta/Vesta_H3_lounge-arc_00001_.mp4"],
+        "shots": 1,
+        "workflow": "workflows/i2v_10s.json"
+      }
+    },
+    {
+      "id": "doorway-reveal",
+      "name": "Doorway Reveal",
+      "camera_prompt": "Camera starts just outside a doorway, then glides through the threshold into the same room as the destination still. Doorframe stays rigid. Once inside, interior geometry matches the listing photograph.",
+      "geometry_lock_prompt": "Preserve original architectural geometry, wall planes, window placement, and furniture layout exactly. Keep sofas, tables, lamps, and decor rigid with consistent materials, textures, and lighting. No morphing, no warping, no geometry drift, no duplicated furniture or objects, no texture swimming, no exposure flicker, no sudden camera jumps.",
+      "ending_instructions": "Come to rest on the interior hero matching the last-frame still and hold 1 second. Prefer last_frame control so the landing composition is designed.",
+      "duration_seconds": 10.13,
+      "frame_count": 243,
+      "fps": 24,
+      "recommended_steps": 20,
+      "sampler": "res_multistep",
+      "scheduler": "simple",
+      "resolution_rules": {
+        "generate_default": [1344, 768],
+        "generate_3x2": [1152, 768],
+        "short_edge_px": 768,
+        "forbid_native_4k": true,
+        "delivery_16x9": [3840, 2160],
+        "prefer_last_frame": true
+      },
+      "intended_use_case": "Arrival sequences: foyer, hallway, or door into the primary room. Use FL2VA when an interior landing still exists.",
+      "expected_output_structure": {
+        "beats": ["threshold", "entry_glide", "interior_hero", "hold_ending"],
+        "files": ["vesta/Vesta_H3_doorway-reveal_00001_.mp4"],
+        "shots": 1,
+        "workflow": "workflows/i2v_fl2va.json",
+        "last_frame": "last_frames/{listing_id}_interior.png"
+      }
+    },
+    {
+      "id": "wide-establishing-reveal",
+      "name": "Wide Establishing Reveal",
+      "camera_prompt": "Begin on the widest readable view of the room, then a single uncut slow reveal that still stays wide: gentle dolly or slight yaw only. This is the establishing shot, not a close-up. Keep the full furniture layout visible through the move.",
+      "geometry_lock_prompt": "Preserve original architectural geometry, wall planes, window placement, and furniture layout exactly. Keep sofas, tables, lamps, and decor rigid with consistent materials, textures, and lighting. No morphing, no warping, no geometry drift, no duplicated furniture or objects, no texture swimming, no exposure flicker, no sudden camera jumps.",
+      "ending_instructions": "Hold the established wide for 1 second so a following shot can match. No snap zoom.",
+      "duration_seconds": 10.13,
+      "frame_count": 243,
+      "fps": 24,
+      "recommended_steps": 20,
+      "sampler": "res_multistep",
+      "scheduler": "simple",
+      "resolution_rules": {
+        "generate_default": [1344, 768],
+        "generate_3x2": [1152, 768],
+        "short_edge_px": 768,
+        "forbid_native_4k": true,
+        "delivery_16x9": [3840, 2160]
+      },
+      "intended_use_case": "Open a listing or campaign pair. Beat 1 of the four-beat template.",
+      "expected_output_structure": {
+        "beats": ["wide_lockoff", "slow_reveal", "established_wide", "hold_ending"],
+        "files": ["vesta/Vesta_H3_wide-establishing-reveal_00001_.mp4"],
+        "shots": 1,
+        "workflow": "workflows/i2v_10s.json"
+      }
+    },
+    {
+      "id": "detail-glide",
+      "name": "Detail Glide",
+      "camera_prompt": "Short, slow glide into a material hero: stone, wood grain, fabric, fixture, or styled tabletop. The rest of the room stays geometrically stable in the background. No snap-magnify, no morphing the object into a new object.",
+      "geometry_lock_prompt": "Preserve original architectural geometry, wall planes, window placement, and furniture layout exactly. Keep sofas, tables, lamps, and decor rigid with consistent materials, textures, and lighting. No morphing, no warping, no geometry drift, no duplicated furniture or objects, no texture swimming, no exposure flicker, no sudden camera jumps.",
+      "ending_instructions": "Hold the material close-up for 1 second. Optional last_frame = product/detail still. CTA type is added in 4K post, not by H3.",
+      "duration_seconds": 10.13,
+      "frame_count": 243,
+      "fps": 24,
+      "recommended_steps": 20,
+      "sampler": "res_multistep",
+      "scheduler": "simple",
+      "resolution_rules": {
+        "generate_default": [1344, 768],
+        "generate_3x2": [1152, 768],
+        "short_edge_px": 768,
+        "forbid_native_4k": true,
+        "delivery_16x9": [3840, 2160],
+        "prefer_last_frame": true
+      },
+      "intended_use_case": "Hero/focus beat, amenity close-up, or Shot B of a campaign pair.",
+      "expected_output_structure": {
+        "beats": ["approach", "material_hero", "hold_ending"],
+        "files": ["vesta/Vesta_H3_detail-glide_00001_.mp4"],
+        "shots": 1,
+        "workflow": "workflows/i2v_fl2va.json"
+      }
+    },
+    {
+      "id": "foreground-pass",
+      "name": "Foreground Pass",
+      "camera_prompt": "Slow dolly past a sharp foreground object already in the listing photo (lamp, chair back, doorway frame, planter). Foreground occludes and reveals the room. The room itself does not warp as the occluder passes.",
+      "geometry_lock_prompt": "Preserve original architectural geometry, wall planes, window placement, and furniture layout exactly. Keep sofas, tables, lamps, and decor rigid with consistent materials, textures, and lighting. No morphing, no warping, no geometry drift, no duplicated furniture or objects, no texture swimming, no exposure flicker, no sudden camera jumps.",
+      "ending_instructions": "Clear the occluder and hold the revealed room hero for 1 second.",
+      "duration_seconds": 10.13,
+      "frame_count": 243,
+      "fps": 24,
+      "recommended_steps": 20,
+      "sampler": "res_multistep",
+      "scheduler": "simple",
+      "resolution_rules": {
+        "generate_default": [1344, 768],
+        "generate_3x2": [1152, 768],
+        "short_edge_px": 768,
+        "forbid_native_4k": true,
+        "delivery_16x9": [3840, 2160]
+      },
+      "intended_use_case": "Styled interiors that already have a strong foreground element in the still.",
+      "expected_output_structure": {
+        "beats": ["occluded_start", "pass", "revealed_hero", "hold_ending"],
+        "files": ["vesta/Vesta_H3_foreground-pass_00001_.mp4"],
+        "shots": 1,
+        "workflow": "workflows/i2v_10s.json"
+      }
+    },
+    {
+      "id": "campaign-pair",
+      "name": "Campaign Pair",
+      "camera_prompt": "Shot A uses Wide Establishing Reveal then eases to a hold. Shot B starts on the last frame of Shot A and continues as Detail Glide or Dolly Out into a designed ending still. One camera idea per shot. Do not stack two aggressive moves in one generation.",
+      "geometry_lock_prompt": "Preserve original architectural geometry, wall planes, window placement, and furniture layout exactly. Keep sofas, tables, lamps, and decor rigid with consistent materials, textures, and lighting. No morphing, no warping, no geometry drift, no duplicated furniture or objects, no texture swimming, no exposure flicker, no sudden camera jumps.",
+      "ending_instructions": "Shot A: hero hold, extract last frame to last_frames/{listing_id}_shot_a.png. Shot B: first_frame is that PNG; last_frame is the branded or CTA still when used. Join in post with an optional 8-frame dissolve. Fade, end-card type, and CTA overlay are 4K finishing, not H3.",
+      "duration_seconds": 20.25,
+      "frame_count": 243,
+      "shot_count": 2,
+      "fps": 24,
+      "recommended_steps": 20,
+      "sampler": "res_multistep",
+      "scheduler": "simple",
+      "resolution_rules": {
+        "generate_default": [1344, 768],
+        "generate_3x2": [1152, 768],
+        "short_edge_px": 768,
+        "forbid_native_4k": true,
+        "forbid_single_481_frame_take": true,
+        "delivery_16x9": [3840, 2160]
+      },
+      "intended_use_case": "Campaign / ~20 second listings. Two connected ~10 second generations, never one oversized take.",
+      "expected_output_structure": {
+        "beats": ["establishing", "interactive_move", "hero_focus", "ending_slate"],
+        "shots": 2,
+        "shot_a": {
+          "preset_id": "wide-establishing-reveal",
+          "frame_count": 243,
+          "workflow": "workflows/i2v_20s_shot_a.json",
+          "files": ["vesta/Vesta_H3_campaign-a_00001_.mp4", "last_frames/{listing_id}_shot_a.png"]
+        },
+        "shot_b": {
+          "preset_id": "detail-glide",
+          "frame_count": 243,
+          "workflow": "workflows/i2v_20s_shot_b.json",
+          "first_frame": "last_frames/{listing_id}_shot_a.png",
+          "files": ["vesta/Vesta_H3_campaign-b_00001_.mp4"]
+        },
+        "joined": "vesta/Vesta_H3_campaign-pair.mp4 then 4K"
+      }
+    },
+    {
+      "id": "premium-15",
+      "name": "Premium 15",
+      "camera_prompt": "One continuous 15-second move: wide establishing, then a single uncut cinematic glide (dolly in, lounge arc, or wide-to-detail — pick one), ending on the hero. Longer travel than the 10-second presets, still one idea. Ease in and ease out.",
+      "geometry_lock_prompt": "Preserve original architectural geometry, wall planes, window placement, and furniture layout exactly. Keep sofas, tables, lamps, and decor rigid with consistent materials, textures, and lighting. No morphing, no warping, no geometry drift, no duplicated furniture or objects, no texture swimming, no exposure flicker, no sudden camera jumps.",
+      "ending_instructions": "Hold the hero for the last 1.0–1.2 seconds. Optional last_frame for a branded or CTA landing. No fade inside H3.",
+      "duration_seconds": 15.08,
+      "frame_count": 362,
+      "fps": 24,
+      "recommended_steps": 20,
+      "sampler": "res_multistep",
+      "scheduler": "simple",
+      "resolution_rules": {
+        "generate_default": [1344, 768],
+        "generate_3x2_only_after_1344_ok": [1152, 768],
+        "short_edge_px": 768,
+        "forbid_native_4k": true,
+        "delivery_16x9": [3840, 2160],
+        "vram_note": "Validate 1344x768 before 1152x768. 362-frame 1152x768 is high OOM risk on 48 GB."
+      },
+      "intended_use_case": "Premium single-take listings that need ~15 seconds without a cut.",
+      "expected_output_structure": {
+        "beats": ["establishing", "interactive_move", "hero_focus", "hold_ending"],
+        "files": ["vesta/Vesta_H3_premium-15_00001_.mp4"],
+        "shots": 1,
+        "workflow": "workflows/i2v_15s.json"
+      }
+    }
+  ]
+}

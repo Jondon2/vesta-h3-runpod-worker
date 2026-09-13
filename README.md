@@ -26,3 +26,18 @@ Model files used by the initial workflow:
 - `minimax_h3_audio_vae_fp32.safetensors`
 
 The first production workflow will support T2V and first-frame/last-frame I2V. Reference-to-video can be added later as a separate heavier model.
+
+## Production package
+
+- Spec: [`docs/vesta-production-spec.md`](docs/vesta-production-spec.md)
+- Shot presets: [`config/vesta_shot_presets.json`](config/vesta_shot_presets.json)
+- Astra QC: [`config/astra_qc_categories.json`](config/astra_qc_categories.json)
+- H3 templates: [`workflows/`](workflows/) (10s, 15s, 20s pair, FL2VA, 4K SeedVR2)
+- Container: `ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v4` (rollback: `runtime-v3`)
+
+Do not use 5-second / 124-frame clips as a production standard. Native generate at 768 short-edge; deliver 4K after selection.
+
+Persistence:
+- Inputs: `/runpod-volume/input` → `LoadImage` `volume/<file>`
+- Outputs: `/runpod-volume/output/vesta` → `SaveVideo` prefix `vesta/`
+- Never compressed MCP base64 for originals or production MP4s.

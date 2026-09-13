@@ -6,8 +6,11 @@ on:
     paths:
       - Dockerfile
       - vesta_start.sh
+      - vesta_handler.py
       - extra_model_paths.yaml
       - workflows/**
+      - config/**
+      - scripts/**
       - .github/workflows/build.yml
 
 jobs:
@@ -40,12 +43,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push slim runtime
+      # runtime-v3 is the known-good rollback image. Do not retag or delete it.
+      - name: Build and push slim runtime-v4
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           tags: |
-            ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v3
+            ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v4
             ghcr.io/jondon2/vesta-h3-runpod-worker:code
           provenance: false
