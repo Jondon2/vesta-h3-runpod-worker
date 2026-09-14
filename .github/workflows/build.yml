@@ -43,13 +43,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # runtime-v3 is the known-good rollback image. Do not retag or delete it.
-      - name: Build and push slim runtime-v4
+      # runtime-v3 and runtime-v4 are rollback images. Do not retag or delete them.
+      - name: Build and push slim runtime-v5
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           tags: |
-            ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v4
+            ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v5
             ghcr.io/jondon2/vesta-h3-runpod-worker:code
           provenance: false

@@ -19,22 +19,53 @@ mkdir -p \
   "${MODEL_ROOT}/upscale_models"
 
 # Full-resolution listing stills live on the network volume so job payloads
-# stay small (workflow JSON only). LoadImage then reads volume/<file>.
-# Do not send original JPEGs as MCP/base64; that path compressed the
-# benchmark still to 512x341.
+# stay small (workflow JSON only). Do not send original JPEGs as MCP/base64.
+#
+# ComfyUI v0.30.1 LoadImage/LoadVideo call exists_annotated_filepath, which
+# rejects any path whose realpath escapes the input root (symlink jail).
+# Do NOT ln -s volume input dirs into /comfyui/input. Instead make
+# /runpod-volume/input ComfyUI's real --input-directory.
+#
+# worker-comfyui 5.8.6 /start.sh hardcodes:
+#   python -u /comfyui/main.py --disable-auto-launch --disable-metadata ...
+# It does not forward extra argv or an env var. Inject --input-directory
+# into that launch line before exec /start.sh.
 #
 # Production videos persist under /runpod-volume/output/vesta. Do NOT replace
 # /comfyui/output — worker-comfyui resolves history files via Comfy /view
 # relative to that directory. A Vesta subfolder symlink keeps /view working
-# while files land on the volume.
+# while files land on the volume. That output symlink is not a LoadImage path.
 if [ -d /runpod-volume ] && [ -w /runpod-volume ]; then
-  mkdir -p /runpod-volume/input /runpod-volume/last_frames /runpod-volume/output/vesta
+  mkdir -p \
+    /runpod-volume/input \
+    /runpod-volume/input/last_frames \
+    /runpod-volume/input/vesta_renders \
+    /runpod-volume/output/vesta
   mkdir -p /comfyui/input /comfyui/output
 
-  ln -sfn /runpod-volume/input /comfyui/input/volume
-  ln -sfn /runpod-volume/last_frames /comfyui/input/last_frames
-  # LoadVideo reads Comfy's input dir. Alias selected renders without copying.
-  ln -sfn /runpod-volume/output/vesta /comfyui/input/vesta_renders
+  # runtime-v4 leftover input aliases. Never leave these for LoadImage/LoadVideo.
+  for leftover in /comfyui/input/volume /comfyui/input/last_frames /comfyui/input/vesta_renders; do
+    if [ -L "${leftover}" ] || [ -e "${leftover}" ]; then
+      rm -rf "${leftover}"
+      echo "Vesta: removed leftover input mapping ${leftover}"
+    fi
+  done
+
+  if [ ! -f /start.sh ]; then
+    echo "Vesta: FATAL: /start.sh missing; cannot inject --input-directory" >&2
+    exit 1
+  fi
+  if ! grep -q 'python -u /comfyui/main.py' /start.sh; then
+    echo "Vesta: FATAL: /start.sh does not launch python -u /comfyui/main.py" >&2
+    exit 1
+  fi
+  if ! grep -q -- '--input-directory /runpod-volume/input' /start.sh; then
+    sed -i 's|python -u /comfyui/main.py|python -u /comfyui/main.py --input-directory /runpod-volume/input|g' /start.sh
+  fi
+  if ! grep -q -- '--input-directory /runpod-volume/input' /start.sh; then
+    echo "Vesta: FATAL: failed to inject --input-directory into /start.sh" >&2
+    exit 1
+  fi
 
   if [ -e /comfyui/output/vesta ] && [ ! -L /comfyui/output/vesta ]; then
     echo "Vesta: moving leftover /comfyui/output/vesta aside (not a symlink)"
@@ -49,8 +80,11 @@ if [ -d /runpod-volume ] && [ -w /runpod-volume ]; then
     echo "Vesta: removed whole-tree /comfyui/output/volume symlink"
   fi
 
-  echo "Vesta: input  /runpod-volume/input -> /comfyui/input/volume"
-  echo "Vesta: output /runpod-volume/output/vesta -> /comfyui/output/vesta"
+  echo "Vesta: ComfyUI --input-directory /runpod-volume/input"
+  echo "Vesta: LoadImage stills     /runpod-volume/input/<file>"
+  echo "Vesta: LoadImage last frames /runpod-volume/input/last_frames/<file>"
+  echo "Vesta: LoadVideo renders    /runpod-volume/input/vesta_renders/<file>"
+  echo "Vesta: SaveVideo output     /runpod-volume/output/vesta -> /comfyui/output/vesta"
 fi
 
 # Official worker-comfyui handler base64-encodes history files. Wrap it so

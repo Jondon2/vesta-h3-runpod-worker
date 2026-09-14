@@ -17,7 +17,7 @@
     "method": "network_volume_loadimage",
     "volume_id": "34m0r6jazp",
     "volume_path": "/runpod-volume/input/{listing_id}{ext}",
-    "comfy_loadimage_name": "volume/{listing_id}{ext}",
+    "comfy_loadimage_name": "{listing_id}{ext}",
     "forbid_mcp_base64": true,
     "preserve_original_pixels": true
   },

@@ -17,7 +17,8 @@ runpod_worker_comfy:
   # those folders — do not put weights in upscale_models:
   #   models/diffusion_models/seedvr2_3b_int8_convrot.safetensors
   #   models/vae/seedvr2_ema_vae_fp16.safetensors
-  # Listing stills are not models: vesta_start.sh maps
-  #   /runpod-volume/input -> /comfyui/input/volume
+  # Listing stills are not models. ComfyUI --input-directory is
+  # /runpod-volume/input (LoadImage <file>, last_frames/<file>,
+  # LoadVideo vesta_renders/<file>). Do not symlink those into /comfyui/input.
   # Production MP4s persist at /runpod-volume/output/vesta (not the whole
   # Comfy output directory).

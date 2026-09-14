@@ -23,7 +23,7 @@
   "load": {
     "class_type": "LoadImage",
     "inputs": {
-      "image": "volume/vesta_input.jpg"
+      "image": "vesta_input.jpg"
     }
   },
   "cond": {

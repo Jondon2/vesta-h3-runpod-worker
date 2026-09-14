@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import json
 import os
-import re
 import subprocess
 import sys
 from pathlib import Path
@@ -31,6 +30,7 @@ COMFY_V030_CLASSES = {
     "VAEDecodeTiled",
     "CreateVideo",
     "SaveVideo",
+    "SaveImage",
     "ImageScale",
     "SeedVR2Preprocess",
     "SeedVR2PostProcessing",
@@ -109,10 +109,13 @@ def validate_workflow(path: Path, data: dict) -> None:
                 err(f"{rel}: SaveVideo filename_prefix must start with vesta/ (got {prefix!r})")
         if cls == "LoadImage":
             image = str(inputs.get("image", ""))
-            if image and not (
-                image.startswith("volume/") or image.startswith("last_frames/")
-            ):
-                err(f"{rel}: LoadImage should use volume/ or last_frames/ (got {image!r})")
+            if image.startswith("volume/"):
+                err(
+                    f"{rel}: LoadImage must not use volume/ (ComfyUI realpath jail); "
+                    f"use a path relative to /runpod-volume/input (got {image!r})"
+                )
+            elif image and "/" in image and not image.startswith("last_frames/"):
+                err(f"{rel}: LoadImage subdir must be last_frames/ (got {image!r})")
         if cls == "LoadVideo":
             file = str(inputs.get("file", ""))
             if file and not file.startswith("vesta_renders/"):
@@ -148,7 +151,7 @@ def validate_presets(data: dict) -> None:
     if len(ids) != len(set(ids)):
         err(f"{rel}: duplicate preset ids")
     inp = data.get("input_image") or {}
-    if inp.get("comfy_loadimage_name") != "volume/{listing_id}{ext}":
+    if inp.get("comfy_loadimage_name") != "{listing_id}{ext}":
         err(f"{rel}: input_image.comfy_loadimage_name mismatch")
     if not inp.get("forbid_mcp_base64"):
         err(f"{rel}: input_image.forbid_mcp_base64 must be true")
@@ -193,10 +196,27 @@ def validate_start_script() -> None:
         err(f"{rel}: must not symlink the entire Comfy output directory")
     if "ln -sfn /runpod-volume/output/vesta /comfyui/output/vesta" not in text:
         err(f"{rel}: missing Vesta-specific output symlink")
-    if "ln -sfn /runpod-volume/input /comfyui/input/volume" not in text:
-        err(f"{rel}: missing input volume symlink")
-    if "ln -sfn /runpod-volume/output/vesta /comfyui/input/vesta_renders" not in text:
-        err(f"{rel}: missing LoadVideo alias vesta_renders")
+    forbidden_input_links = (
+        "ln -sfn /runpod-volume/input /comfyui/input/volume",
+        "ln -sfn /runpod-volume/last_frames /comfyui/input/last_frames",
+        "ln -sfn /runpod-volume/output/vesta /comfyui/input/vesta_renders",
+        "ln -sfn /runpod-volume/input /comfyui/input",
+    )
+    for needle in forbidden_input_links:
+        if needle in text:
+            err(f"{rel}: must not create LoadImage/LoadVideo symlink {needle!r}")
+    if "--input-directory /runpod-volume/input" not in text:
+        err(f"{rel}: must inject ComfyUI --input-directory /runpod-volume/input")
+    if "python -u /comfyui/main.py --input-directory /runpod-volume/input" not in text:
+        err(f"{rel}: must patch worker-comfyui /start.sh launch line (it does not forward argv)")
+    for path in (
+        "/runpod-volume/input",
+        "/runpod-volume/input/last_frames",
+        "/runpod-volume/input/vesta_renders",
+        "/runpod-volume/output/vesta",
+    ):
+        if path not in text:
+            err(f"{rel}: missing mkdir path {path}")
     proc = subprocess.run(["bash", "-n", str(ROOT / rel)], capture_output=True, text=True)
     if proc.returncode != 0:
         err(f"{rel}: bash -n failed: {proc.stderr.strip()}")
@@ -204,6 +224,31 @@ def validate_start_script() -> None:
     proc = subprocess.run(["bash", "-n", str(concat)], capture_output=True, text=True)
     if proc.returncode != 0:
         err(f"scripts/concat_campaign.sh: bash -n failed: {proc.stderr.strip()}")
+
+
+def validate_comfy_input_root_resolution() -> None:
+    """ComfyUI v0.30.1 folder_paths.get_annotated_filepath / is_within_directory."""
+    input_root = "/runpod-volume/input"
+    name = "vesta_fullres_test.jpg"
+    filepath = os.path.abspath(os.path.join(input_root, name))
+    expected = "/runpod-volume/input/vesta_fullres_test.jpg"
+    if filepath != expected:
+        err(f"static input resolve: {name!r} -> {filepath!r}, expected {expected!r}")
+        return
+    try:
+        contained = os.path.commonpath((os.path.abspath(input_root), filepath)) == os.path.abspath(
+            input_root
+        )
+    except ValueError:
+        contained = False
+    if not contained:
+        err(f"static input resolve: {expected} escapes {input_root}")
+    old = os.path.abspath(os.path.join("/comfyui/input", "volume/vesta_fullres_test.jpg"))
+    if old == expected:
+        err("static input resolve: volume/ prefix must not be the production still path")
+    # Directory symlink to the volume still fails the jail even when the file exists.
+    if os.path.commonpath(("/comfyui/input", "/runpod-volume/input/vesta_fullres_test.jpg")) == "/comfyui/input":
+        err("static input resolve: unexpected containment of volume path under /comfyui/input")
 
 
 def validate_dockerfile() -> None:
@@ -220,12 +265,12 @@ def validate_dockerfile() -> None:
 
 def validate_github_workflow() -> None:
     text = (ROOT / ".github/workflows/build.yml").read_text()
-    if "runtime-v4" not in text:
-        err("build.yml must publish runtime-v4")
-    if re.search(r"tags:.*runtime-v3", text, re.S) and "runtime-v4" in text:
-        # New builds must not retag runtime-v3.
-        if "vesta-h3-runpod-worker:runtime-v3" in text:
-            err("build.yml must not retag runtime-v3 (leave it as rollback)")
+    if "runtime-v5" not in text:
+        err("build.yml must publish runtime-v5")
+    if "vesta-h3-runpod-worker:runtime-v4" in text:
+        err("build.yml must not retag runtime-v4 (leave it as rollback)")
+    if "vesta-h3-runpod-worker:runtime-v3" in text:
+        err("build.yml must not retag runtime-v3 (leave it as rollback)")
 
 
 def main() -> int:
@@ -242,6 +287,7 @@ def main() -> int:
         validate_qc(qc)
     validate_extra_model_paths((ROOT / "extra_model_paths.yaml").read_text())
     validate_start_script()
+    validate_comfy_input_root_resolution()
     validate_dockerfile()
     validate_github_workflow()
 

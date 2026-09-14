@@ -1,0 +1,15 @@
+{
+  "load": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "vesta_fullres_test.jpg"
+    }
+  },
+  "save": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": ["load", 0],
+      "filename_prefix": "vesta/fullres_input_check"
+    }
+  }
+}
