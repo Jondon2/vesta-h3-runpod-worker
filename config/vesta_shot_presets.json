@@ -21,6 +21,15 @@
     "forbid_mcp_base64": true,
     "preserve_original_pixels": true
   },
+  "output_video": {
+    "method": "network_volume_save",
+    "volume_id": "34m0r6jazp",
+    "volume_root": "/runpod-volume/output/vesta",
+    "comfy_saveimage_prefix": "validation/{name}",
+    "comfy_savevideo_prefix": "video/{name}",
+    "forbid_mcp_base64": true,
+    "forbid_output_symlink": true
+  },
   "resolution_catalog": {
     "16:9": { "generate": [1344, 768], "deliver_4k": [3840, 2160] },
     "3:2": { "generate": [1152, 768], "deliver_4k": [3840, 2560] },
@@ -50,7 +59,7 @@
       "intended_use_case": "Default 10-second listing hero. Establishing into a slow push toward the main seating or view.",
       "expected_output_structure": {
         "beats": ["establishing", "interactive_move", "hero_focus", "hold_ending"],
-        "files": ["vesta/Vesta_H3_hero-push-in_00001_.mp4"],
+        "files": ["video/Vesta_H3_hero-push-in_00001_.mp4"],
         "shots": 1,
         "workflow": "workflows/i2v_10s.json"
       }
@@ -77,7 +86,7 @@
       "intended_use_case": "Long facades, kitchen runs, gallery walls, and rooms that read better as a lateral reveal than a push-in.",
       "expected_output_structure": {
         "beats": ["establishing", "lateral_move", "settle", "hold_ending"],
-        "files": ["vesta/Vesta_H3_lateral-parallax_00001_.mp4"],
+        "files": ["video/Vesta_H3_lateral-parallax_00001_.mp4"],
         "shots": 1,
         "workflow": "workflows/i2v_10s.json"
       }
@@ -104,7 +113,7 @@
       "intended_use_case": "Living rooms and conversation groups where the furniture arrangement is the product.",
       "expected_output_structure": {
         "beats": ["establishing", "orbit", "hero_focus", "hold_ending"],
-        "files": ["vesta/Vesta_H3_lounge-arc_00001_.mp4"],
+        "files": ["video/Vesta_H3_lounge-arc_00001_.mp4"],
         "shots": 1,
         "workflow": "workflows/i2v_10s.json"
       }
@@ -132,7 +141,7 @@
       "intended_use_case": "Arrival sequences: foyer, hallway, or door into the primary room. Use FL2VA when an interior landing still exists.",
       "expected_output_structure": {
         "beats": ["threshold", "entry_glide", "interior_hero", "hold_ending"],
-        "files": ["vesta/Vesta_H3_doorway-reveal_00001_.mp4"],
+        "files": ["video/Vesta_H3_doorway-reveal_00001_.mp4"],
         "shots": 1,
         "workflow": "workflows/i2v_fl2va.json",
         "last_frame": "last_frames/{listing_id}_interior.png"
@@ -160,7 +169,7 @@
       "intended_use_case": "Open a listing or campaign pair. Beat 1 of the four-beat template.",
       "expected_output_structure": {
         "beats": ["wide_lockoff", "slow_reveal", "established_wide", "hold_ending"],
-        "files": ["vesta/Vesta_H3_wide-establishing-reveal_00001_.mp4"],
+        "files": ["video/Vesta_H3_wide-establishing-reveal_00001_.mp4"],
         "shots": 1,
         "workflow": "workflows/i2v_10s.json"
       }
@@ -188,7 +197,7 @@
       "intended_use_case": "Hero/focus beat, amenity close-up, or Shot B of a campaign pair.",
       "expected_output_structure": {
         "beats": ["approach", "material_hero", "hold_ending"],
-        "files": ["vesta/Vesta_H3_detail-glide_00001_.mp4"],
+        "files": ["video/Vesta_H3_detail-glide_00001_.mp4"],
         "shots": 1,
         "workflow": "workflows/i2v_fl2va.json"
       }
@@ -215,7 +224,7 @@
       "intended_use_case": "Styled interiors that already have a strong foreground element in the still.",
       "expected_output_structure": {
         "beats": ["occluded_start", "pass", "revealed_hero", "hold_ending"],
-        "files": ["vesta/Vesta_H3_foreground-pass_00001_.mp4"],
+        "files": ["video/Vesta_H3_foreground-pass_00001_.mp4"],
         "shots": 1,
         "workflow": "workflows/i2v_10s.json"
       }
@@ -249,16 +258,16 @@
           "preset_id": "wide-establishing-reveal",
           "frame_count": 243,
           "workflow": "workflows/i2v_20s_shot_a.json",
-          "files": ["vesta/Vesta_H3_campaign-a_00001_.mp4", "last_frames/{listing_id}_shot_a.png"]
+          "files": ["video/Vesta_H3_campaign-a_00001_.mp4", "last_frames/{listing_id}_shot_a.png"]
         },
         "shot_b": {
           "preset_id": "detail-glide",
           "frame_count": 243,
           "workflow": "workflows/i2v_20s_shot_b.json",
           "first_frame": "last_frames/{listing_id}_shot_a.png",
-          "files": ["vesta/Vesta_H3_campaign-b_00001_.mp4"]
+          "files": ["video/Vesta_H3_campaign-b_00001_.mp4"]
         },
-        "joined": "vesta/Vesta_H3_campaign-pair.mp4 then 4K"
+        "joined": "video/Vesta_H3_campaign-pair.mp4 then 4K"
       }
     },
     {
@@ -284,7 +293,7 @@
       "intended_use_case": "Premium single-take listings that need ~15 seconds without a cut.",
       "expected_output_structure": {
         "beats": ["establishing", "interactive_move", "hero_focus", "hold_ending"],
-        "files": ["vesta/Vesta_H3_premium-15_00001_.mp4"],
+        "files": ["video/Vesta_H3_premium-15_00001_.mp4"],
         "shots": 1,
         "workflow": "workflows/i2v_15s.json"
       }

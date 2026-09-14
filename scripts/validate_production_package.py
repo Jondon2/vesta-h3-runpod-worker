@@ -104,9 +104,25 @@ def validate_workflow(path: Path, data: dict) -> None:
                 if value[0] not in data:
                     err(f"{rel}: {node_id}.{key} references missing node {value[0]!r}")
         if cls == "SaveVideo":
-            prefix = inputs.get("filename_prefix", "")
-            if not str(prefix).startswith("vesta/"):
-                err(f"{rel}: SaveVideo filename_prefix must start with vesta/ (got {prefix!r})")
+            prefix = str(inputs.get("filename_prefix", ""))
+            if prefix.startswith("vesta/"):
+                err(
+                    f"{rel}: SaveVideo filename_prefix must not start with vesta/ "
+                    f"once output root is /runpod-volume/output/vesta (got {prefix!r})"
+                )
+            elif not prefix.startswith("video/"):
+                err(f"{rel}: SaveVideo filename_prefix must start with video/ (got {prefix!r})")
+        if cls == "SaveImage":
+            prefix = str(inputs.get("filename_prefix", ""))
+            if prefix.startswith("vesta/"):
+                err(
+                    f"{rel}: SaveImage filename_prefix must not start with vesta/ "
+                    f"once output root is /runpod-volume/output/vesta (got {prefix!r})"
+                )
+            elif not prefix.startswith("validation/"):
+                err(
+                    f"{rel}: SaveImage filename_prefix must start with validation/ (got {prefix!r})"
+                )
         if cls == "LoadImage":
             image = str(inputs.get("image", ""))
             if image.startswith("volume/"):
@@ -124,7 +140,7 @@ def validate_workflow(path: Path, data: dict) -> None:
 
 def validate_presets(data: dict) -> None:
     rel = "config/vesta_shot_presets.json"
-    for key in ("version", "fps", "defaults", "geometry_lock_prompt", "input_image", "resolution_catalog", "presets"):
+    for key in ("version", "fps", "defaults", "geometry_lock_prompt", "input_image", "output_video", "resolution_catalog", "presets"):
         if key not in data:
             err(f"{rel}: missing {key}")
     presets = data.get("presets") or []
@@ -142,8 +158,10 @@ def validate_presets(data: dict) -> None:
             err(f"{rel}: {preset['id']} must forbid native 4K")
         files = preset.get("expected_output_structure", {}).get("files") or []
         for f in files:
-            if isinstance(f, str) and f.startswith("video/"):
-                err(f"{rel}: {preset['id']} output path still uses video/ prefix: {f}")
+            if isinstance(f, str) and f.startswith("vesta/"):
+                err(f"{rel}: {preset['id']} output path still uses vesta/ prefix: {f}")
+            if isinstance(f, str) and f.endswith(".mp4") and not f.startswith("video/"):
+                err(f"{rel}: {preset['id']} MP4 must be under video/: {f}")
         wf = preset.get("expected_output_structure", {}).get("workflow")
         if wf:
             if not (ROOT / wf).is_file():
@@ -155,6 +173,17 @@ def validate_presets(data: dict) -> None:
         err(f"{rel}: input_image.comfy_loadimage_name mismatch")
     if not inp.get("forbid_mcp_base64"):
         err(f"{rel}: input_image.forbid_mcp_base64 must be true")
+    out = data.get("output_video") or {}
+    if out.get("volume_root") != "/runpod-volume/output/vesta":
+        err(f"{rel}: output_video.volume_root must be /runpod-volume/output/vesta")
+    if out.get("comfy_saveimage_prefix") != "validation/{name}":
+        err(f"{rel}: output_video.comfy_saveimage_prefix mismatch")
+    if out.get("comfy_savevideo_prefix") != "video/{name}":
+        err(f"{rel}: output_video.comfy_savevideo_prefix mismatch")
+    if not out.get("forbid_mcp_base64"):
+        err(f"{rel}: output_video.forbid_mcp_base64 must be true")
+    if not out.get("forbid_output_symlink"):
+        err(f"{rel}: output_video.forbid_output_symlink must be true")
 
 
 def validate_qc(data: dict) -> None:
@@ -192,23 +221,45 @@ def validate_extra_model_paths(text: str) -> None:
 def validate_start_script() -> None:
     rel = "vesta_start.sh"
     text = (ROOT / rel).read_text()
-    if "/comfyui/output/volume" in text and "ln -sfn /runpod-volume/output /comfyui/output/volume" in text:
+    if "ln -sfn /runpod-volume/output /comfyui/output/volume" in text:
         err(f"{rel}: must not symlink the entire Comfy output directory")
-    if "ln -sfn /runpod-volume/output/vesta /comfyui/output/vesta" not in text:
-        err(f"{rel}: missing Vesta-specific output symlink")
-    forbidden_input_links = (
+    if "ln -sfn /runpod-volume/output/vesta /comfyui/output/vesta" in text:
+        err(f"{rel}: must not create output symlink (use --output-directory)")
+    if "ln -sfn /comfyui/output/vesta" in text or "ln -sfn /comfyui/output/" in text:
+        err(f"{rel}: must not create any /comfyui/output symlink")
+    forbidden_links = (
         "ln -sfn /runpod-volume/input /comfyui/input/volume",
         "ln -sfn /runpod-volume/last_frames /comfyui/input/last_frames",
         "ln -sfn /runpod-volume/output/vesta /comfyui/input/vesta_renders",
         "ln -sfn /runpod-volume/input /comfyui/input",
+        "ln -sfn /runpod-volume/output/vesta /comfyui/output/vesta",
+        "ln -sfn /runpod-volume/output /comfyui/output",
     )
-    for needle in forbidden_input_links:
+    for needle in forbidden_links:
         if needle in text:
-            err(f"{rel}: must not create LoadImage/LoadVideo symlink {needle!r}")
+            err(f"{rel}: must not create escaping symlink {needle!r}")
+    for line in text.splitlines():
+        cmd = line.split("#", 1)[0].strip()
+        if cmd.startswith("ln -s") or " ln -s" in f" {cmd}":
+            err(f"{rel}: production start must not create any symlink ({cmd})")
     if "--input-directory /runpod-volume/input" not in text:
         err(f"{rel}: must inject ComfyUI --input-directory /runpod-volume/input")
-    if "python -u /comfyui/main.py --input-directory /runpod-volume/input" not in text:
-        err(f"{rel}: must patch worker-comfyui /start.sh launch line (it does not forward argv)")
+    if "--output-directory /runpod-volume/output/vesta" not in text:
+        err(f"{rel}: must inject ComfyUI --output-directory /runpod-volume/output/vesta")
+    if (
+        "python -u /comfyui/main.py --input-directory /runpod-volume/input "
+        "--output-directory /runpod-volume/output/vesta"
+    ) not in text:
+        err(f"{rel}: must patch every worker-comfyui /start.sh launch line with both directory flags")
+    for leftover in (
+        "/comfyui/output/vesta",
+        "/comfyui/output/volume",
+        "/comfyui/input/volume",
+        "/comfyui/input/last_frames",
+        "/comfyui/input/vesta_renders",
+    ):
+        if leftover not in text:
+            err(f"{rel}: must remove leftover mapping {leftover}")
     for path in (
         "/runpod-volume/input",
         "/runpod-volume/input/last_frames",
@@ -220,35 +271,100 @@ def validate_start_script() -> None:
     proc = subprocess.run(["bash", "-n", str(ROOT / rel)], capture_output=True, text=True)
     if proc.returncode != 0:
         err(f"{rel}: bash -n failed: {proc.stderr.strip()}")
-    concat = ROOT / "scripts/concat_campaign.sh"
-    proc = subprocess.run(["bash", "-n", str(concat)], capture_output=True, text=True)
-    if proc.returncode != 0:
-        err(f"scripts/concat_campaign.sh: bash -n failed: {proc.stderr.strip()}")
+    for script in ("scripts/concat_campaign.sh", "scripts/stage_continuation.sh"):
+        proc = subprocess.run(["bash", "-n", str(ROOT / script)], capture_output=True, text=True)
+        if proc.returncode != 0:
+            err(f"{script}: bash -n failed: {proc.stderr.strip()}")
 
 
-def validate_comfy_input_root_resolution() -> None:
-    """ComfyUI v0.30.1 folder_paths.get_annotated_filepath / is_within_directory."""
+def _comfy_join(root: str, name: str) -> str:
+    """Match ComfyUI folder_paths.get_annotated_filepath / get_save_image_path join."""
+    return os.path.abspath(os.path.join(root, name))
+
+
+def _contained(root: str, path: str) -> bool:
+    try:
+        return os.path.commonpath((os.path.abspath(root), os.path.abspath(path))) == os.path.abspath(
+            root
+        )
+    except ValueError:
+        return False
+
+
+def validate_comfy_roots() -> None:
+    """ComfyUI v0.30.1 realpath jail: input and output roots must contain resolved files."""
     input_root = "/runpod-volume/input"
+    output_root = "/runpod-volume/output/vesta"
+
     name = "vesta_fullres_test.jpg"
-    filepath = os.path.abspath(os.path.join(input_root, name))
+    filepath = _comfy_join(input_root, name)
     expected = "/runpod-volume/input/vesta_fullres_test.jpg"
     if filepath != expected:
         err(f"static input resolve: {name!r} -> {filepath!r}, expected {expected!r}")
-        return
-    try:
-        contained = os.path.commonpath((os.path.abspath(input_root), filepath)) == os.path.abspath(
-            input_root
-        )
-    except ValueError:
-        contained = False
-    if not contained:
+    elif not _contained(input_root, filepath):
         err(f"static input resolve: {expected} escapes {input_root}")
-    old = os.path.abspath(os.path.join("/comfyui/input", "volume/vesta_fullres_test.jpg"))
+
+    old = _comfy_join("/comfyui/input", "volume/vesta_fullres_test.jpg")
     if old == expected:
         err("static input resolve: volume/ prefix must not be the production still path")
-    # Directory symlink to the volume still fails the jail even when the file exists.
-    if os.path.commonpath(("/comfyui/input", "/runpod-volume/input/vesta_fullres_test.jpg")) == "/comfyui/input":
+    if _contained("/comfyui/input", "/runpod-volume/input/vesta_fullres_test.jpg"):
         err("static input resolve: unexpected containment of volume path under /comfyui/input")
+
+    save_image_prefix = "validation/fullres_input_check"
+    save_image_dir = _comfy_join(output_root, os.path.dirname(os.path.normpath(save_image_prefix)))
+    expected_save_image_dir = "/runpod-volume/output/vesta/validation"
+    if save_image_dir != expected_save_image_dir:
+        err(
+            f"static SaveImage resolve: {save_image_prefix!r} -> {save_image_dir!r}, "
+            f"expected {expected_save_image_dir!r}"
+        )
+    elif not _contained(output_root, save_image_dir):
+        err(f"static SaveImage resolve: {save_image_dir} escapes {output_root}")
+
+    save_video_prefix = "video/Vesta_H3_production"
+    save_video_dir = _comfy_join(output_root, os.path.dirname(os.path.normpath(save_video_prefix)))
+    expected_save_video_dir = "/runpod-volume/output/vesta/video"
+    if save_video_dir != expected_save_video_dir:
+        err(
+            f"static SaveVideo resolve: {save_video_prefix!r} -> {save_video_dir!r}, "
+            f"expected {expected_save_video_dir!r}"
+        )
+    elif not _contained(output_root, save_video_dir):
+        err(f"static SaveVideo resolve: {save_video_dir} escapes {output_root}")
+
+    nested_vesta = _comfy_join(
+        output_root, os.path.dirname(os.path.normpath("vesta/fullres_input_check"))
+    )
+    if nested_vesta == expected_save_image_dir:
+        err("static output resolve: leading vesta/ must not be the validation SaveImage path")
+    old_symlink_save = _comfy_join("/comfyui/output", "vesta/fullres_input_check")
+    if _contained("/comfyui/output", "/runpod-volume/output/vesta/validation"):
+        err("static output resolve: unexpected containment of volume output under /comfyui/output")
+    if old_symlink_save == expected_save_image_dir:
+        err("static output resolve: /comfyui/output/vesta/... must not be the production SaveImage path")
+
+
+def validate_handler() -> None:
+    rel = "vesta_handler.py"
+    text = (ROOT / rel).read_text()
+    if 'sub == "vesta"' in text or "startswith(\"vesta/\")" in text or "startswith('vesta/')" in text:
+        err(f"{rel}: must not key persistence off a vesta/ subfolder name")
+    if "os.symlink" in text or "os.symlink" in (ROOT / "scripts/stage_continuation.sh").read_text():
+        err("continuation staging must not call os.symlink")
+    if "shutil.copy2" not in text:
+        err(f"{rel}: continuation staging must copy with shutil.copy2")
+    if '"type": "volume"' not in text:
+        err(f"{rel}: persistent outputs must be returned as type volume")
+    if "skip /view+base64" not in text:
+        err(f"{rel}: must skip /view+base64 for persistent outputs")
+    if 'kind == "output"' not in text and 'image_type == "output"' not in text:
+        err(f"{rel}: must detect Comfy output files via image_type")
+    if "/runpod-volume/output/vesta" not in text:
+        err(f"{rel}: missing output root /runpod-volume/output/vesta")
+    if "/runpod-volume/input" not in text:
+        err(f"{rel}: missing input root /runpod-volume/input")
+    if "last_frames/" not in text or "vesta_renders/" not in text:
+        err(f"{rel}: stage dest must be last_frames/ or vesta_renders/")
 
 
 def validate_dockerfile() -> None:
@@ -261,12 +377,16 @@ def validate_dockerfile() -> None:
         err("Dockerfile must COPY vesta_handler.py")
     if "concat_campaign.sh" not in text:
         err("Dockerfile must COPY concat_campaign.sh")
+    if "stage_continuation.sh" not in text:
+        err("Dockerfile must COPY stage_continuation.sh")
 
 
 def validate_github_workflow() -> None:
     text = (ROOT / ".github/workflows/build.yml").read_text()
-    if "runtime-v5" not in text:
-        err("build.yml must publish runtime-v5")
+    if "runtime-v6" not in text:
+        err("build.yml must publish runtime-v6")
+    if "vesta-h3-runpod-worker:runtime-v5" in text:
+        err("build.yml must not retag runtime-v5 (leave it as rollback)")
     if "vesta-h3-runpod-worker:runtime-v4" in text:
         err("build.yml must not retag runtime-v4 (leave it as rollback)")
     if "vesta-h3-runpod-worker:runtime-v3" in text:
@@ -287,7 +407,8 @@ def main() -> int:
         validate_qc(qc)
     validate_extra_model_paths((ROOT / "extra_model_paths.yaml").read_text())
     validate_start_script()
-    validate_comfy_input_root_resolution()
+    validate_comfy_roots()
+    validate_handler()
     validate_dockerfile()
     validate_github_workflow()
 

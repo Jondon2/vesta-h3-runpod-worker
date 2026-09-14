@@ -94,7 +94,7 @@
     "class_type": "SaveVideo",
     "inputs": {
       "video": ["video", 0],
-      "filename_prefix": "vesta/Vesta_H3_campaign-a",
+      "filename_prefix": "video/Vesta_H3_campaign-a",
       "format": "auto",
       "codec": "auto"
     }

@@ -10,8 +10,8 @@ This spec turns the completed H3 tests into a reusable production system. The 12
 
 | Item | Result |
 |---|---|
-| Worker image (rollback) | `ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v4` (then `runtime-v3`) |
-| Worker image (this package) | `ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v5` |
+| Worker image (rollback) | `ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v5` (then `runtime-v4`, `runtime-v3`) |
+| Worker image (this package) | `ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v6` |
 | Volume | `vesta-h3-models` (`34m0r6jazp`) at `/runpod-volume` |
 | GPU | 1× NVIDIA RTX 6000 Ada 48 GB, US-IL-1, `$1.75/hr` |
 | I2V 1152×768, 124 frames, 20 steps, video only | COMPLETED in 599,687 ms |
@@ -56,31 +56,35 @@ The official `runpod/worker-comfyui` handler only accepts extra stills as in-pay
 
 1. Stage the **original** listing still on network volume `34m0r6jazp`:
    - `/runpod-volume/input/<listing_id>.<jpg|png|webp>`
-2. `vesta_start.sh` (runtime-v5) makes `/runpod-volume/input` ComfyUI's **real** `--input-directory`. It does **not** symlink volume dirs into `/comfyui/input` (ComfyUI v0.30.1 LoadImage rejects those as `Invalid image file`).
+2. `vesta_start.sh` (runtime-v6) makes `/runpod-volume/input` ComfyUI's **real** `--input-directory` and `/runpod-volume/output/vesta` its **real** `--output-directory`. It does **not** symlink volume dirs into `/comfyui/input` or `/comfyui/output` (ComfyUI v0.30.1 LoadImage/SaveImage reject those as outside the configured root).
    - `/runpod-volume/input/` — listing stills (`LoadImage` `<file>`)
-   - `/runpod-volume/input/last_frames/` — last-frame stills (`LoadImage` `last_frames/<file>`)
-   - `/runpod-volume/input/vesta_renders/` — staged continuation MP4s (`LoadVideo` `vesta_renders/<file>`)
-   - `/comfyui/output/vesta` → `/runpod-volume/output/vesta` (SaveVideo / `/view` only; not a LoadImage path)
+   - `/runpod-volume/input/last_frames/` — last-frame stills (`LoadImage` `last_frames/<file>`), copied in, never symlinked
+   - `/runpod-volume/input/vesta_renders/` — staged continuation MP4s (`LoadVideo` `vesta_renders/<file>`), copied in, never symlinked
+   - `/runpod-volume/output/vesta/` — ComfyUI output root (`SaveImage` `validation/...`, `SaveVideo` `video/...`)
 3. Workflow `LoadImage` uses `<listing_id>.jpg` (and `last_frames/<id>.png` when needed). Never `volume/<file>`.
 4. Job payload is **workflow JSON only**. No `images` array. MCP-sized. Original pixels unchanged.
-5. Production `SaveVideo` prefixes are `vesta/...` so files land on the volume. The worker wrapper does **not** base64 those files back through MCP.
+5. Production `SaveVideo` prefixes are `video/...` (not `vesta/...`) so files land at `/runpod-volume/output/vesta/video/...`. The worker wrapper does **not** base64 those files back through MCP.
 
 Staging onto the volume (no GPU worker required):
 
 - **Preferred:** attach `34m0r6jazp` to a **CPU** pod or use the volume’s S3-compatible API / console file upload, then write `input/`.
-- **Alternate:** signed HTTPS URL in object storage (R2/S3). A future handler download (`input.image_url` → `/runpod-volume/input/…`) keeps the job small. Not in `runtime-v5` yet; do not send the URL through MCP as a giant base64 field.
+- **Alternate:** signed HTTPS URL in object storage (R2/S3). A future handler download (`input.image_url` → `/runpod-volume/input/…`) keeps the job small. Not in `runtime-v6` yet; do not send the URL through MCP as a giant base64 field.
 - **Do not:** compress, downscale, or base64 the original through Cursor MCP `run-endpoint`.
 
-Do not symlink the entire `/comfyui/output` tree to the volume. worker-comfyui 5.8.6 resolves history via Comfy `/view` under `/comfyui/output`; replacing that directory would mix volume files with handler temp/history and can break fetches. Only the `vesta/` subfolder is persistent.
+Do not symlink `/comfyui/output` (or a `vesta/` child) to the volume. ComfyUI v0.30.1 `get_save_image_path` uses `realpath` and raises `Saving image outside the output folder is not allowed` for those links. `--output-directory /runpod-volume/output/vesta` is the supported root. worker-comfyui `/view` follows `folder_paths.get_output_directory()`, so history fetch still resolves; the Vesta wrapper skips `/view`+base64 for `image_type=output` files on that volume.
 
 ### Production output path (required)
 
 | Role | Path |
 |---|---|
-| Volume (source of truth) | `/runpod-volume/output/vesta/<file>.mp4` |
-| Comfy SaveVideo | `/comfyui/output/vesta/` → volume (symlink) |
-| SeedVR2 LoadVideo | `vesta_renders/<file>.mp4` → `/runpod-volume/input/vesta_renders/` (stage a copy; do not symlink output) |
+| Volume / Comfy output root | `/runpod-volume/output/vesta` |
+| SaveImage (input check) | prefix `validation/fullres_input_check` → `/runpod-volume/output/vesta/validation/...` |
+| SaveVideo | prefix `video/Vesta_H3_…` → `/runpod-volume/output/vesta/video/...` |
+| SeedVR2 LoadVideo | copy MP4 to `/runpod-volume/input/vesta_renders/<file>.mp4` (`LoadVideo` `vesta_renders/<file>`) |
+| Last-frame / continuation still | copy PNG to `/runpod-volume/input/last_frames/<file>` |
 | Job result | `{ "type": "volume", "path": "/runpod-volume/output/vesta/..." }` — not base64 |
+
+Use `scripts/stage_continuation.sh` or job input `vesta_stage: [{ "src": "video/….mp4", "dest": "vesta_renders/….mp4" }]`. Copies only. No per-file or directory symlinks.
 
 Campaign 20 s delivery is two native MP4s concatenated with `scripts/concat_campaign.sh` (ffmpeg concat demuxer, CPU). Retrieve files from the volume (CPU pod, console, or S3 API), not from the MCP job payload.
 

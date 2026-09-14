@@ -38,7 +38,8 @@ COPY config /opt/vesta/config
 COPY vesta_start.sh /opt/vesta/vesta_start.sh
 COPY vesta_handler.py /opt/vesta/vesta_handler.py
 COPY scripts/concat_campaign.sh /opt/vesta/scripts/concat_campaign.sh
-RUN chmod +x /opt/vesta/vesta_start.sh /opt/vesta/scripts/concat_campaign.sh
+COPY scripts/stage_continuation.sh /opt/vesta/scripts/stage_continuation.sh
+RUN chmod +x /opt/vesta/vesta_start.sh /opt/vesta/scripts/concat_campaign.sh /opt/vesta/scripts/stage_continuation.sh
 
 ENV VESTA_WORKFLOW_DIR=/opt/vesta/workflows
 ENV VESTA_DOWNLOAD_MODELS=1

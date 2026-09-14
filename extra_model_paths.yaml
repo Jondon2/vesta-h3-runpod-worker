@@ -20,5 +20,5 @@ runpod_worker_comfy:
   # Listing stills are not models. ComfyUI --input-directory is
   # /runpod-volume/input (LoadImage <file>, last_frames/<file>,
   # LoadVideo vesta_renders/<file>). Do not symlink those into /comfyui/input.
-  # Production MP4s persist at /runpod-volume/output/vesta (not the whole
-  # Comfy output directory).
+  # ComfyUI --output-directory is /runpod-volume/output/vesta (the real
+  # SaveImage/SaveVideo root). Do not symlink /comfyui/output.

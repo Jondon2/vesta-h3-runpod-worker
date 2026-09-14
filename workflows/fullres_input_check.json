@@ -9,7 +9,7 @@
     "class_type": "SaveImage",
     "inputs": {
       "images": ["load", 0],
-      "filename_prefix": "vesta/fullres_input_check"
+      "filename_prefix": "validation/fullres_input_check"
     }
   }
 }

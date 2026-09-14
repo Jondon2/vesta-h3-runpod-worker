@@ -18,23 +18,26 @@ mkdir -p \
   "${MODEL_ROOT}/vae" \
   "${MODEL_ROOT}/upscale_models"
 
-# Full-resolution listing stills live on the network volume so job payloads
-# stay small (workflow JSON only). Do not send original JPEGs as MCP/base64.
+# Full-resolution listing stills and production renders live on the network
+# volume so job payloads stay small (workflow JSON only). Do not send original
+# JPEGs or production MP4s as MCP/base64.
 #
-# ComfyUI v0.30.1 LoadImage/LoadVideo call exists_annotated_filepath, which
-# rejects any path whose realpath escapes the input root (symlink jail).
-# Do NOT ln -s volume input dirs into /comfyui/input. Instead make
-# /runpod-volume/input ComfyUI's real --input-directory.
+# ComfyUI v0.30.1 LoadImage/LoadVideo/SaveImage/SaveVideo call
+# exists_annotated_filepath / get_save_image_path, which reject any path whose
+# realpath escapes the configured root (symlink jail). Do NOT ln -s volume dirs
+# into /comfyui/input or /comfyui/output. Make the volume the real roots:
+#   --input-directory  /runpod-volume/input
+#   --output-directory /runpod-volume/output/vesta
 #
 # worker-comfyui 5.8.6 /start.sh hardcodes:
 #   python -u /comfyui/main.py --disable-auto-launch --disable-metadata ...
-# It does not forward extra argv or an env var. Inject --input-directory
-# into that launch line before exec /start.sh.
+# It does not forward extra argv or an env var. Inject both directory flags
+# into every /comfyui/main.py launch line before exec /start.sh.
 #
-# Production videos persist under /runpod-volume/output/vesta. Do NOT replace
-# /comfyui/output — worker-comfyui resolves history files via Comfy /view
-# relative to that directory. A Vesta subfolder symlink keeps /view working
-# while files land on the volume. That output symlink is not a LoadImage path.
+# Continuation stills/MP4s are copied into last_frames/ or vesta_renders/.
+# Never symlink generated output back into the input root.
+INPUT_ROOT="/runpod-volume/input"
+OUTPUT_ROOT="/runpod-volume/output/vesta"
 if [ -d /runpod-volume ] && [ -w /runpod-volume ]; then
   mkdir -p \
     /runpod-volume/input \
@@ -43,52 +46,64 @@ if [ -d /runpod-volume ] && [ -w /runpod-volume ]; then
     /runpod-volume/output/vesta
   mkdir -p /comfyui/input /comfyui/output
 
-  # runtime-v4 leftover input aliases. Never leave these for LoadImage/LoadVideo.
-  for leftover in /comfyui/input/volume /comfyui/input/last_frames /comfyui/input/vesta_renders; do
-    if [ -L "${leftover}" ] || [ -e "${leftover}" ]; then
-      rm -rf "${leftover}"
-      echo "Vesta: removed leftover input mapping ${leftover}"
+  # runtime-v4/v5 leftover aliases. Never leave these for Load*/Save*.
+  for leftover in \
+    /comfyui/input/volume \
+    /comfyui/input/last_frames \
+    /comfyui/input/vesta_renders \
+    /comfyui/output/vesta \
+    /comfyui/output/volume
+  do
+    if [ -L "${leftover}" ]; then
+      rm -f "${leftover}"
+      echo "Vesta: removed leftover symlink ${leftover}"
+    elif [ -e "${leftover}" ]; then
+      mv "${leftover}" "${leftover}.ephemeral.$$"
+      echo "Vesta: moved leftover ${leftover} aside (not a symlink)"
     fi
   done
 
   if [ ! -f /start.sh ]; then
-    echo "Vesta: FATAL: /start.sh missing; cannot inject --input-directory" >&2
+    echo "Vesta: FATAL: /start.sh missing; cannot inject ComfyUI directory flags" >&2
     exit 1
   fi
   if ! grep -q 'python -u /comfyui/main.py' /start.sh; then
     echo "Vesta: FATAL: /start.sh does not launch python -u /comfyui/main.py" >&2
     exit 1
   fi
-  if ! grep -q -- '--input-directory /runpod-volume/input' /start.sh; then
-    sed -i 's|python -u /comfyui/main.py|python -u /comfyui/main.py --input-directory /runpod-volume/input|g' /start.sh
+
+  LAUNCH_PREFIX='python -u /comfyui/main.py --input-directory /runpod-volume/input --output-directory /runpod-volume/output/vesta'
+  if ! grep -q -- '--input-directory /runpod-volume/input' /start.sh || \
+     ! grep -q -- '--output-directory /runpod-volume/output/vesta' /start.sh; then
+    # Strip a prior partial injection, then apply both flags to every launch line.
+    sed -i 's|python -u /comfyui/main.py --input-directory /runpod-volume/input --output-directory /runpod-volume/output/vesta|python -u /comfyui/main.py|g' /start.sh
+    sed -i 's|python -u /comfyui/main.py --input-directory /runpod-volume/input|python -u /comfyui/main.py|g' /start.sh
+    sed -i 's|python -u /comfyui/main.py --output-directory /runpod-volume/output/vesta|python -u /comfyui/main.py|g' /start.sh
+    sed -i "s|python -u /comfyui/main.py|${LAUNCH_PREFIX}|g" /start.sh
   fi
   if ! grep -q -- '--input-directory /runpod-volume/input' /start.sh; then
     echo "Vesta: FATAL: failed to inject --input-directory into /start.sh" >&2
     exit 1
   fi
-
-  if [ -e /comfyui/output/vesta ] && [ ! -L /comfyui/output/vesta ]; then
-    echo "Vesta: moving leftover /comfyui/output/vesta aside (not a symlink)"
-    mv /comfyui/output/vesta "/comfyui/output/vesta.ephemeral.$$"
-  fi
-  ln -sfn /runpod-volume/output/vesta /comfyui/output/vesta
-
-  # Older runtime-v3 start script mapped the entire output tree. Remove it so
-  # worker-comfyui temp/history files stay on local disk.
-  if [ -L /comfyui/output/volume ]; then
-    rm -f /comfyui/output/volume
-    echo "Vesta: removed whole-tree /comfyui/output/volume symlink"
+  if ! grep -q -- '--output-directory /runpod-volume/output/vesta' /start.sh; then
+    echo "Vesta: FATAL: failed to inject --output-directory into /start.sh" >&2
+    exit 1
   fi
 
-  echo "Vesta: ComfyUI --input-directory /runpod-volume/input"
-  echo "Vesta: LoadImage stills     /runpod-volume/input/<file>"
-  echo "Vesta: LoadImage last frames /runpod-volume/input/last_frames/<file>"
-  echo "Vesta: LoadVideo renders    /runpod-volume/input/vesta_renders/<file>"
-  echo "Vesta: SaveVideo output     /runpod-volume/output/vesta -> /comfyui/output/vesta"
+  export VESTA_INPUT_ROOT="${INPUT_ROOT}"
+  export VESTA_OUTPUT_ROOT="${OUTPUT_ROOT}"
+
+  echo "Vesta: ComfyUI --input-directory ${INPUT_ROOT}"
+  echo "Vesta: ComfyUI --output-directory ${OUTPUT_ROOT}"
+  echo "Vesta: injected launch: ${LAUNCH_PREFIX} --disable-auto-launch --disable-metadata ..."
+  echo "Vesta: LoadImage stills      ${INPUT_ROOT}/<file>"
+  echo "Vesta: LoadImage last frames ${INPUT_ROOT}/last_frames/<file>"
+  echo "Vesta: LoadVideo renders     ${INPUT_ROOT}/vesta_renders/<file>"
+  echo "Vesta: SaveImage/SaveVideo   ${OUTPUT_ROOT}/<prefix>/... (no symlink)"
 fi
 
 # Official worker-comfyui handler base64-encodes history files. Wrap it so
-# Vesta production MP4s stay on the volume instead of returning 10–20 s / 4K
+# Vesta production files stay on the volume instead of returning 10–20 s / 4K
 # payloads through MCP.
 if [ -f /opt/vesta/vesta_handler.py ] && [ -f /handler.py ]; then
   if [ ! -f /handler.orig.py ]; then

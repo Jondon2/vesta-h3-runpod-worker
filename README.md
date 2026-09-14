@@ -33,11 +33,12 @@ The first production workflow will support T2V and first-frame/last-frame I2V. R
 - Shot presets: [`config/vesta_shot_presets.json`](config/vesta_shot_presets.json)
 - Astra QC: [`config/astra_qc_categories.json`](config/astra_qc_categories.json)
 - H3 templates: [`workflows/`](workflows/) (10s, 15s, 20s pair, FL2VA, 4K SeedVR2)
-- Container: `ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v5` (rollback: `runtime-v4`, then `runtime-v3`)
+- Container: `ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v6` (rollback: `runtime-v5`, then `runtime-v4`, `runtime-v3`)
 
 Do not use 5-second / 124-frame clips as a production standard. Native generate at 768 short-edge; deliver 4K after selection.
 
 Persistence:
-- Inputs: `/runpod-volume/input` is ComfyUI's real input root → `LoadImage` `<file>` (last frames `last_frames/<file>`; SeedVR2 `vesta_renders/<file>`)
-- Outputs: `/runpod-volume/output/vesta` → `SaveVideo` prefix `vesta/`
+- Inputs: `/runpod-volume/input` is ComfyUI's real `--input-directory` → `LoadImage` `<file>` (last frames `last_frames/<file>`; SeedVR2 `vesta_renders/<file>`)
+- Outputs: `/runpod-volume/output/vesta` is ComfyUI's real `--output-directory` → `SaveImage` prefix `validation/...`, `SaveVideo` prefix `video/...`
+- Continuation: copy into `last_frames/` or `vesta_renders/`; never symlink output into input
 - Never compressed MCP base64 for originals or production MP4s.
