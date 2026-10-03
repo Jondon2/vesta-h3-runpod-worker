@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "post": "POST_011",
+  "still": "POST_011_still_r1.png",
+  "response_id": "resp_016f244cfd5497e5016abdd90bde0487d1b09c3b7767de3a2c",
+  "parsed": {
+    "POST": "POST_011",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "PHOTOREALISM": "PASS",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "PASS",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "PASS",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Brass hardware grouping above the stone backsplash",
+        "DESCRIPTION": "Four separate brass wall fittings are visible rather than the locked three-control grouping. The additional fitting breaks the specified hero detail."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_011\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"PHOTOREALISM\": \"PASS\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"PASS\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Brass hardware grouping above the stone backsplash\",\n      \"DESCRIPTION\": \"Four separate brass wall fittings are visible rather than the locked three-control grouping. The additional fitting breaks the specified hero detail.\"\n    }\n  ]\n}"
+}

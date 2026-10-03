@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "post": "POST_001",
+  "still": "POST_001_still_r2.png",
+  "response_id": "resp_09a01cba1770b589016abdeb33965487d19da352ec969a5bed",
+  "parsed": {
+    "POST": "POST_001",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "PHOTOREALISM": "PASS",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "PASS",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "FAIL",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Corridor floor in Image 2 and Image 3, from foreground toward the salon threshold.",
+        "DESCRIPTION": "The prior failure remains: opposing boards meet in aligned mitred V joints along a continuous central seam, forming chevron. The required staggered, interlocking herringbone with board ends meeting adjacent board sides is absent."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_001\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"PHOTOREALISM\": \"PASS\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"FAIL\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Corridor floor in Image 2 and Image 3, from foreground toward the salon threshold.\",\n      \"DESCRIPTION\": \"The prior failure remains: opposing boards meet in aligned mitred V joints along a continuous central seam, forming chevron. The required staggered, interlocking herringbone with board ends meeting adjacent board sides is absent.\"\n    }\n  ]\n}"
+}

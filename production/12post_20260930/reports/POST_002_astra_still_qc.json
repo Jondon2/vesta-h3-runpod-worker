@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "post": "POST_002",
+  "still": "POST_002_still.png",
+  "response_id": "resp_02912c4f3a152c25016abdd90be3bc87d1a9e6062ca16be5c9",
+  "parsed": {
+    "POST": "POST_002",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 3,
+    "PHOTOREALISM": "FAIL",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "FAIL",
+    "LIGHTING": "FAIL",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "FAIL",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Fluted cabinet fronts",
+        "DESCRIPTION": "Uniformly smooth white ridges lack discernible plaster texture or material variation, reading as manufactured ribbed panels rather than the specified fluted plaster."
+      },
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Hero arrangement",
+        "DESCRIPTION": "The required stone finial is absent. The two small stone-like door knobs do not fulfill that hero element."
+      },
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Lighting across cabinet and room",
+        "DESCRIPTION": "Broad, even illumination replaces the specified raking window light; there is no pronounced directional light pattern revealing the plaster relief and room surfaces."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_002\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 3,\n  \"PHOTOREALISM\": \"FAIL\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"FAIL\",\n  \"LIGHTING\": \"FAIL\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"FAIL\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Fluted cabinet fronts\",\n      \"DESCRIPTION\": \"Uniformly smooth white ridges lack discernible plaster texture or material variation, reading as manufactured ribbed panels rather than the specified fluted plaster.\"\n    },\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Hero arrangement\",\n      \"DESCRIPTION\": \"The required stone finial is absent. The two small stone-like door knobs do not fulfill that hero element.\"\n    },\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Lighting across cabinet and room\",\n      \"DESCRIPTION\": \"Broad, even illumination replaces the specified raking window light; there is no pronounced directional light pattern revealing the plaster relief and room surfaces.\"\n    }\n  ]\n}"
+}

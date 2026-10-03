@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "post": "POST_006",
+  "still": "POST_006_still_r1.png",
+  "response_id": "resp_058acf4fde3c182f016abde62549cc87d1bf95e5fc2aafe199",
+  "parsed": {
+    "POST": "POST_006",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "PHOTOREALISM": "PASS",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "PASS",
+    "LIGHTING": "FAIL",
+    "SCALE": "PASS",
+    "COMPOSITION": "FAIL",
+    "REFERENCE_QUALITY_FLOOR": "PASS",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Sunlit carpet region immediately right of the walnut leg, visible in Images 2 and 3",
+        "DESCRIPTION": "The prior defect remains: sunlight forms a narrow triangular wedge with a pointed left end and widening boundaries cropped by the right edge. It does not read as the required hard rectangle or square. The local repair has not restored the locked lighting geometry."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_006\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"PHOTOREALISM\": \"PASS\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"FAIL\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"FAIL\",\n  \"REFERENCE_QUALITY_FLOOR\": \"PASS\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Sunlit carpet region immediately right of the walnut leg, visible in Images 2 and 3\",\n      \"DESCRIPTION\": \"The prior defect remains: sunlight forms a narrow triangular wedge with a pointed left end and widening boundaries cropped by the right edge. It does not read as the required hard rectangle or square. The local repair has not restored the locked lighting geometry.\"\n    }\n  ]\n}"
+}

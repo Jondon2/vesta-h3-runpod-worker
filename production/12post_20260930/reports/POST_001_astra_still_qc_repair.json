@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "post": "POST_001",
+  "still": "POST_001_still_r1.png",
+  "response_id": "resp_046640dcd1a81b1c016abde6251b4087d19d8fd5016e69e38b",
+  "parsed": {
+    "POST": "POST_001",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "PHOTOREALISM": "PASS",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "FAIL",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "PASS",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Repaired oak floor, along the corridor centerline in images 2 and 3",
+        "DESCRIPTION": "The prior defect remains: opposing diagonal boards meet in repeated mitred V-shaped chevrons along a continuous central seam. The required staggered, interlocking herringbone end-to-side joints are absent. Correction is needed within the floor region."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_001\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"PHOTOREALISM\": \"PASS\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"FAIL\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"PASS\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Repaired oak floor, along the corridor centerline in images 2 and 3\",\n      \"DESCRIPTION\": \"The prior defect remains: opposing diagonal boards meet in repeated mitred V-shaped chevrons along a continuous central seam. The required staggered, interlocking herringbone end-to-side joints are absent. Correction is needed within the floor region.\"\n    }\n  ]\n}"
+}

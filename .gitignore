@@ -1,0 +1,30 @@
+# Secrets and local-only credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Machine-local and generated production assets. Source manifests, controller
+# code, and QC JSON stay trackable; large render/source binaries live in the
+# configured RunPod volume and GitHub release assets instead.
+.DS_Store
+.tmp-pilot-assets/
+external/
+local-outputs/
+properties/
+__pycache__/
+*.py[cod]
+*.blend
+*.blend1
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.mp4
+*.mov
+*.mkv
+*.pdf
+
+# Ephemeral controller files
+.vesta-cloud-work/

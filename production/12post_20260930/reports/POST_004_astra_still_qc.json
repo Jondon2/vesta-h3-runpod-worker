@@ -1,0 +1,34 @@
+{
+  "ok": true,
+  "post": "POST_004",
+  "still": "POST_004_still.png",
+  "response_id": "resp_08b456c43fd61fbd016abdd90c4ea487d18e0aa93d3588d45b",
+  "parsed": {
+    "POST": "POST_004",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 2,
+    "PHOTOREALISM": "PASS",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "PASS",
+    "LIGHTING": "FAIL",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "PASS",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Door face",
+        "DESCRIPTION": "The hero is a plain vertical-board timber door, without the required carved relief. This misses the locked carved-cedar design."
+      },
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Door and limewashed surround",
+        "DESCRIPTION": "Illumination is broad and soft rather than the required raking afternoon light; the directional light-and-shadow treatment is absent."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_004\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 2,\n  \"PHOTOREALISM\": \"PASS\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"FAIL\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"PASS\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Door face\",\n      \"DESCRIPTION\": \"The hero is a plain vertical-board timber door, without the required carved relief. This misses the locked carved-cedar design.\"\n    },\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Door and limewashed surround\",\n      \"DESCRIPTION\": \"Illumination is broad and soft rather than the required raking afternoon light; the directional light-and-shadow treatment is absent.\"\n    }\n  ]\n}"
+}

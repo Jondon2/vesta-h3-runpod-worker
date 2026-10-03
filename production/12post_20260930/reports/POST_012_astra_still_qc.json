@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "post": "POST_012",
+  "still": "POST_012_still_r1.png",
+  "response_id": "resp_099c74aada15fcf4016abddbcb473487d18a34e4e391ca89be",
+  "parsed": {
+    "POST": "POST_012",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "PHOTOREALISM": "FAIL",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "PASS",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "FAIL",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Faucet stream and front face of marble sink",
+        "DESCRIPTION": "The stream misses the visible basin and continues down in front of the solid stone apron, ending near its lower edge without a credible impact or splash. This visibly broken water-to-sink relationship undermines the hero detail and photographic realism."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_012\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"PHOTOREALISM\": \"FAIL\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"FAIL\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Faucet stream and front face of marble sink\",\n      \"DESCRIPTION\": \"The stream misses the visible basin and continues down in front of the solid stone apron, ending near its lower edge without a credible impact or splash. This visibly broken water-to-sink relationship undermines the hero detail and photographic realism.\"\n    }\n  ]\n}"
+}

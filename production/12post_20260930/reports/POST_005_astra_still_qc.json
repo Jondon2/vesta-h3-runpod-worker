@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "post": "POST_005",
+  "still": "POST_005_still.png",
+  "response_id": "resp_00b9376f5b6acf2b016abdd90c6fbc87d1ac77f602a3254784",
+  "parsed": {
+    "POST": "POST_005",
+    "DECISION": "PASS",
+    "CRITICAL": 0,
+    "MAJOR": 0,
+    "PHOTOREALISM": "PASS",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "PASS",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "PASS",
+    "DESIGN_INTENT": "PASS",
+    "STILL_QC_PASS": true,
+    "DEFECTS": []
+  },
+  "text": "{\n  \"POST\": \"POST_005\",\n  \"DECISION\": \"PASS\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 0,\n  \"PHOTOREALISM\": \"PASS\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"PASS\",\n  \"DESIGN_INTENT\": \"PASS\",\n  \"STILL_QC_PASS\": true,\n  \"DEFECTS\": []\n}"
+}

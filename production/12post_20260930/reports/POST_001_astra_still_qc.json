@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "post": "POST_001",
+  "still": "POST_001_still.png",
+  "response_id": "resp_09cb1caec97df97a016abdd90c2f3887d1b15008a84f263c9a",
+  "parsed": {
+    "POST": "POST_001",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "PHOTOREALISM": "PASS",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "PASS",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "PASS",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Corridor oak flooring",
+        "DESCRIPTION": "The boards form a mitred chevron pattern with a continuous central seam, rather than the staggered, interlocking herringbone required by the concept lock."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_001\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"PHOTOREALISM\": \"PASS\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"PASS\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Corridor oak flooring\",\n      \"DESCRIPTION\": \"The boards form a mitred chevron pattern with a continuous central seam, rather than the staggered, interlocking herringbone required by the concept lock.\"\n    }\n  ]\n}"
+}

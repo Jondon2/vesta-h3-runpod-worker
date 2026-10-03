@@ -1,0 +1,34 @@
+{
+  "ok": true,
+  "post": "POST_012",
+  "still": "POST_012_still_r2.png",
+  "response_id": "resp_080973d6a85a19f3016abde6251e2c87d1b0a5698c6b64f308",
+  "parsed": {
+    "POST": "POST_012",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 2,
+    "PHOTOREALISM": "FAIL",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "PASS",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "FAIL",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Stream endpoint at the basin's front edge",
+        "DESCRIPTION": "The stream visibly terminates on the pale solid front lip rather than clearly inside the recessed basin. The required physically believable basin landing is not resolved."
+      },
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Immediately beneath the faucet's right-hand control lever",
+        "DESCRIPTION": "A vertically streaked, translucent-looking block extends from beneath the lever to the countertop. Its smeared geometry does not read as coherent faucet hardware and breaks the realism of the repaired region."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_012\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 2,\n  \"PHOTOREALISM\": \"FAIL\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"FAIL\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Stream endpoint at the basin's front edge\",\n      \"DESCRIPTION\": \"The stream visibly terminates on the pale solid front lip rather than clearly inside the recessed basin. The required physically believable basin landing is not resolved.\"\n    },\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Immediately beneath the faucet's right-hand control lever\",\n      \"DESCRIPTION\": \"A vertically streaked, translucent-looking block extends from beneath the lever to the countertop. Its smeared geometry does not read as coherent faucet hardware and breaks the realism of the repaired region.\"\n    }\n  ]\n}"
+}

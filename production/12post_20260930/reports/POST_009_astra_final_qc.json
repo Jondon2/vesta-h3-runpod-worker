@@ -1,0 +1,13 @@
+{
+  "parsed": {
+    "POST": "POST_009",
+    "DECISION": "PASS",
+    "CRITICAL": 0,
+    "MAJOR": 0,
+    "FINAL_QC_PASS": true,
+    "WATERMARK_PASS": true,
+    "WIDTH_OK": true,
+    "DEFECTS": []
+  },
+  "text": "{\"POST\":\"POST_009\",\"DECISION\":\"PASS\",\"CRITICAL\":0,\"MAJOR\":0,\"FINAL_QC_PASS\":true,\"WATERMARK_PASS\":true,\"WIDTH_OK\":true,\"DEFECTS\":[]}"
+}

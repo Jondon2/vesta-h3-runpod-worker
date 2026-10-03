@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "post": "POST_007",
+  "still": "POST_007_still_r1.png",
+  "response_id": "resp_0f6ed1cc845aadff016abddbcb3c0c87d1b47898e780cce075",
+  "parsed": {
+    "POST": "POST_007",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 3,
+    "PHOTOREALISM": "FAIL",
+    "ARCHITECTURE": "FAIL",
+    "MATERIALS": "FAIL",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "FAIL",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Foreground central vertical oak edge",
+        "DESCRIPTION": "The oak edge has a visible jagged notch and irregular contour below the countertop, interrupting the clean joinery line."
+      },
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Right foreground panel below the countertop",
+        "DESCRIPTION": "Horizontal wood grain transitions into pale stone texture through an uneven, softened boundary without a resolved material joint."
+      },
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Hero oak\u2013stone junction",
+        "DESCRIPTION": "The warm linear light is confined to the background cabinetry; the foreground hero reveal is unlit, missing the locked warm-light joinery detail."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_007\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 3,\n  \"PHOTOREALISM\": \"FAIL\",\n  \"ARCHITECTURE\": \"FAIL\",\n  \"MATERIALS\": \"FAIL\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"FAIL\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Foreground central vertical oak edge\",\n      \"DESCRIPTION\": \"The oak edge has a visible jagged notch and irregular contour below the countertop, interrupting the clean joinery line.\"\n    },\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Right foreground panel below the countertop\",\n      \"DESCRIPTION\": \"Horizontal wood grain transitions into pale stone texture through an uneven, softened boundary without a resolved material joint.\"\n    },\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Hero oak\u2013stone junction\",\n      \"DESCRIPTION\": \"The warm linear light is confined to the background cabinetry; the foreground hero reveal is unlit, missing the locked warm-light joinery detail.\"\n    }\n  ]\n}"
+}

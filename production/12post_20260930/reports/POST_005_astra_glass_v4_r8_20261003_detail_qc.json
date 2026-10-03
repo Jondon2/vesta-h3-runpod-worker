@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "pair": "GLASS",
+  "before": "production/12post_20260930/delivery/POST_005/v4/stills_glass_r8_20261003_remote/GLASS_BEFORE.png",
+  "after": "production/12post_20260930/delivery/POST_005/v4/stills_glass_r8_20261003_remote/GLASS_AFTER.png",
+  "parsed": {
+    "GLASS_PAIR_QC": "PASS",
+    "PHOTOREALISM": "PASS",
+    "MATERIAL_REALISM": "PASS",
+    "ROOM_MATCH": "PASS",
+    "TRANSMISSION_REALISM": "PASS",
+    "REFLECTION_INTEGRATION": "PASS",
+    "BEFORE_AFTER_CLARITY": "PASS",
+    "SAME_GEOMETRY": "PASS",
+    "TRANSITION_ALIGNMENT": "PASS",
+    "CRITICAL": 0,
+    "MAJOR": 0,
+    "MINOR": 0,
+    "DEFECTS": [],
+    "REPAIR_INSTRUCTIONS": ""
+  },
+  "text": "{\n  \"GLASS_PAIR_QC\": \"PASS\",\n  \"PHOTOREALISM\": \"PASS\",\n  \"MATERIAL_REALISM\": \"PASS\",\n  \"ROOM_MATCH\": \"PASS\",\n  \"TRANSMISSION_REALISM\": \"PASS\",\n  \"REFLECTION_INTEGRATION\": \"PASS\",\n  \"BEFORE_AFTER_CLARITY\": \"PASS\",\n  \"SAME_GEOMETRY\": \"PASS\",\n  \"TRANSITION_ALIGNMENT\": \"PASS\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 0,\n  \"MINOR\": 0,\n  \"DEFECTS\": [],\n  \"REPAIR_INSTRUCTIONS\": \"\"\n}"
+}

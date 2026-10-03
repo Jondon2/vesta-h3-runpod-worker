@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_0983df8ea4d8d384016abe01b770cc87d1a3b62c271b61f8a7",
+  "parsed": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "WOOL_PAIR_QC": "FAIL",
+    "OAK_PAIR_QC": "FAIL",
+    "GLASS_PAIR_QC": "FAIL",
+    "PHOTOREALISM": "FAIL",
+    "MATERIAL_REALISM": "FAIL",
+    "BEFORE_AFTER_CLARITY": "FAIL",
+    "DETAIL_FOCUS": "FAIL",
+    "SAME_GEOMETRY": "PASS",
+    "TRANSITION_ALIGNMENT": "PASS",
+    "LIGHTING_CONSISTENCY": "FAIL",
+    "OBJECT_PHYSICS": "FAIL",
+    "CRITICAL": 1,
+    "MAJOR": 4,
+    "POST_005_V4_CREATIVE_PREFLIGHT": "FAIL",
+    "DEFECTS": [
+      "CRITICAL: Both glass frames are dominated by pale, nearly opaque rectangles; the city is largely obscured, and AFTER does not convincingly show clearer glazing.",
+      "MAJOR: Lantern BEFORE has conspicuously faceted glass; AFTER reads as a nearly flat luminous globe with weak rib detail.",
+      "MAJOR: The window retains the glowing ribbed-lantern reflection in LANTERN_BEFORE despite the different, unlit foreground lantern.",
+      "MAJOR: Both throws resemble stiff, thick sheets with lifted edges rather than naturally draped fabric; AFTER adds surface bump without convincing wool fibers.",
+      "MAJOR: Oak changes clearly from pale to dark, but conspicuously repeated grain and knots across drawer fronts undermine photographic material realism."
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "post": "POST_006",
+  "still": "POST_006_still.png",
+  "response_id": "resp_0cdcd479ab0306e2016abdd90be93887d1997131fc114771e6",
+  "parsed": {
+    "POST": "POST_006",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "PHOTOREALISM": "PASS",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "PASS",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "FAIL",
+    "REFERENCE_QUALITY_FLOOR": "PASS",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Sunlit floor patch at middle right",
+        "DESCRIPTION": "The sunlight reads as a narrow triangular wedge cropped by the right edge, not the locked hard sun rectangle or square crossing the wool. The framing loses the intended hero shape."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_006\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"PHOTOREALISM\": \"PASS\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"FAIL\",\n  \"REFERENCE_QUALITY_FLOOR\": \"PASS\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Sunlit floor patch at middle right\",\n      \"DESCRIPTION\": \"The sunlight reads as a narrow triangular wedge cropped by the right edge, not the locked hard sun rectangle or square crossing the wool. The framing loses the intended hero shape.\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_02ecd5c12f92c9c4016abe9f29e2e087d18c14c6c93f5ff8c9",
+  "parsed": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "LANTERN_PHOTOREALISM": "FAIL",
+    "LANTERN_CONSTRUCTION_REALISM": "FAIL",
+    "LANTERN_REFLECTION_STATE_MATCH": "PASS",
+    "LANTERN_BEFORE_AFTER_CLARITY": "PASS",
+    "LANTERN_ROOM_MATCH": "PASS",
+    "LANTERN_FAIL_ONLY_RIB_DEPTH": "NO",
+    "CRITICAL": 0,
+    "MAJOR": 2,
+    "DEFECTS": [
+      "Both details read as CG rather than luxury interior photographs. BEFORE has overly pristine cage geometry, a stark block base, and unconvincing bulb illumination; AFTER retains synthetic material and lighting responses.",
+      "AFTER reads as a nearly uniform emissive globe with faint surface striping, not thin translucent paper over ribs. Convincing paper texture, transmitted-light variation, and shade construction are missing; excessive rib depth is not the issue."
+    ]
+  }
+}

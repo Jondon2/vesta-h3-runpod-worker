@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_0cccfe2d2b79e7fd016abe9939fe6c87d195eb4301a4242833",
+  "parsed": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "LANTERN_PHOTOREALISM": "FAIL",
+    "LANTERN_CONSTRUCTION_REALISM": "FAIL",
+    "LANTERN_REFLECTION_STATE_MATCH": "PASS",
+    "LANTERN_BEFORE_AFTER_CLARITY": "PASS",
+    "LANTERN_ROOM_MATCH": "PASS",
+    "LANTERN_FAIL_ONLY_RIB_DEPTH": "NO",
+    "CRITICAL": 0,
+    "MAJOR": 2,
+    "DEFECTS": [
+      "BEFORE reads as a simplified render rather than a luxury interior photograph: the bulb appears unsupported, with no convincing socket or wiring, and the cage and base lack realistic assembly detail.",
+      "AFTER reads as a uniformly emissive solid globe rather than translucent handcrafted paper. Regular soft bands lack discernible paper texture and fine structural ribs; the shade lacks convincing internal-light variation and construction detail."
+    ]
+  }
+}

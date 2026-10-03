@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_096d9d8b48919e9b016abe11ba60f887d1a08978b8c3a9d4db",
+  "parsed": {
+    "GLASS_PAIR_QC": "FAIL",
+    "LANTERN_PAIR_QC": "FAIL",
+    "GLASS_PHOTOREALISM": "FAIL",
+    "GLASS_MATERIAL_REALISM": "PASS",
+    "GLASS_TRANSMISSION_REALISM": "PASS",
+    "GLASS_REFLECTION_REALISM": "FAIL",
+    "GLASS_BEFORE_AFTER_CLARITY": "FAIL",
+    "GLASS_ROOM_MATCH": "PASS",
+    "LANTERN_PHOTOREALISM": "FAIL",
+    "LANTERN_CONSTRUCTION_REALISM": "FAIL",
+    "LANTERN_REFLECTION_STATE_MATCH": "PASS",
+    "LANTERN_BEFORE_AFTER_CLARITY": "PASS",
+    "LANTERN_ROOM_MATCH": "FAIL",
+    "LANTERN_FAIL_ONLY_RIB_DEPTH": "NO",
+    "CRITICAL": 0,
+    "MAJOR": 5,
+    "DEFECTS": [
+      "GLASS_AFTER: The partial lantern reflection becomes a hard-edged, flat peach shape rather than a richer, optically convincing reflection.",
+      "GLASS: Exterior buildings and lights remain similarly soft in both stills. The change is concentrated in the lantern reflection, without a convincing subtle improvement in glazing clarity.",
+      "LANTERN_BEFORE: The cage's glass globe shows coarse, faceted-looking surface transitions rather than convincingly smooth curved glass.",
+      "LANTERN_AFTER: The shade reads as a nearly uniform flat emitter, lacking visible fine ribs, paper texture, translucency variation and internal support detail. This is not a rib-depth-only failure.",
+      "LANTERN_ROOM_MATCH: The synthetic lantern geometry, simplified shading and broad tabletop highlight make the closeups read as a separate 3D scene rather than details of the approved bedroom."
+    ]
+  }
+}

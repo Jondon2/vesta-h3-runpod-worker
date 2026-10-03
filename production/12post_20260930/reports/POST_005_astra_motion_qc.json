@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "post": "POST_005",
+  "response_id": "resp_097251628c494fe9016abde838d8e487d1b757bc772034adf5",
+  "parsed": {
+    "POST": "POST_005",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "MOTION_QC_PASS": false,
+    "ARCHITECTURE_PERMANENCE": "PASS",
+    "OBJECT_PERMANENCE": "PASS",
+    "CAMERA_STABILITY": "PASS",
+    "FURNITURE_CONSISTENCY": "PASS",
+    "MATERIAL_CONSISTENCY": "PASS",
+    "LIGHTING_STABILITY": "FAIL",
+    "TEXTURE_SWIMMING": "PASS",
+    "FIXTURE_MORPHING": "PASS",
+    "FRAME_ARTIFACTS": "PASS",
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Lantern, room surfaces, and window reflections; images 3\u20137",
+        "DESCRIPTION": "Lighting changes exceed faint motion. The lantern brightens, then loses its warm glow and appears unlit by image 7, while the bed, cabinet, and floor become substantially brighter. Broad interior reflections also become pronounced in the window. This changes the approved nighttime lighting balance rather than preserving it with subtle variation."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_005\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"MOTION_QC_PASS\": false,\n  \"ARCHITECTURE_PERMANENCE\": \"PASS\",\n  \"OBJECT_PERMANENCE\": \"PASS\",\n  \"CAMERA_STABILITY\": \"PASS\",\n  \"FURNITURE_CONSISTENCY\": \"PASS\",\n  \"MATERIAL_CONSISTENCY\": \"PASS\",\n  \"LIGHTING_STABILITY\": \"FAIL\",\n  \"TEXTURE_SWIMMING\": \"PASS\",\n  \"FIXTURE_MORPHING\": \"PASS\",\n  \"FRAME_ARTIFACTS\": \"PASS\",\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Lantern, room surfaces, and window reflections; images 3\u20137\",\n      \"DESCRIPTION\": \"Lighting changes exceed faint motion. The lantern brightens, then loses its warm glow and appears unlit by image 7, while the bed, cabinet, and floor become substantially brighter. Broad interior reflections also become pronounced in the window. This changes the approved nighttime lighting balance rather than preserving it with subtle variation.\"\n    }\n  ]\n}",
+  "duration_sec": 10.833333,
+  "width": 768,
+  "height": 1344,
+  "frames": 260
+}

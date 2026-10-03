@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_0f35b9f9f65fdf95016abe17f7aeac87d1b688df2d5eeded72",
+  "parsed": {
+    "WOOL_PAIR_QC": "FAIL",
+    "PHOTOREALISM": "FAIL",
+    "MATERIAL_REALISM": "FAIL",
+    "FABRIC_DRAPE": "FAIL",
+    "FIBER_RESPONSE": "FAIL",
+    "SAME_GEOMETRY": "PASS",
+    "BEFORE_AFTER_CLARITY": "FAIL",
+    "ROOM_MATCH": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 6,
+    "DEFECTS": [
+      "PHOTOREALISM: Both close-ups read as simplified renders, with smooth surfaces and insufficient photographic detail.",
+      "MATERIAL_REALISM: BEFORE does not convincingly read as linen/cotton, and AFTER does not read as premium wool.",
+      "FABRIC_DRAPE: The textile forms a stiff, elevated ramp with broad planar areas rather than convincing gravity-driven fabric folds.",
+      "FIBER_RESPONSE: No believable weave, wool fibers, or fine-scale fuzz is visible.",
+      "BEFORE_AFTER_CLARITY: The change is primarily a darker, warmer surface tone; a material-quality upgrade is not readable.",
+      "ROOM_MATCH: The close-ups lack identifiable reference-room features sufficient to establish continuity with APPROVED_WIDE."
+    ]
+  }
+}

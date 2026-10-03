@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "pair": "GLASS",
+  "before": "production/12post_20260930/delivery/POST_005/v4/stills_glass_r8_20261003_remote/GLASS_BEFORE.png",
+  "after": "production/12post_20260930/delivery/POST_005/v4/stills_glass_r8_20261003_remote/GLASS_AFTER.png",
+  "parsed": {
+    "GLASS_PAIR_QC": "FAIL",
+    "PHOTOREALISM": "PASS",
+    "MATERIAL_REALISM": "PASS",
+    "ROOM_MATCH": "FAIL",
+    "TRANSMISSION_REALISM": "PASS",
+    "REFLECTION_INTEGRATION": "PASS",
+    "BEFORE_AFTER_CLARITY": "PASS",
+    "SAME_GEOMETRY": "PASS",
+    "TRANSITION_ALIGNMENT": "PASS",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "MINOR": 0,
+    "DEFECTS": [
+      "MAJOR: Both images show predominantly blue sky, a central window mullion, and buildings along the bottom; no recognizable bedroom interior is visible. The required evening-bedroom room match cannot be certified from these pixels. Visible mullion placement, skyline geometry, and city-light positions do align."
+    ],
+    "REPAIR_INSTRUCTIONS": "Provide matching wider bedroom views that expose the interior geometry while preserving the aligned window and city composition. Retain the visible improvement in AFTER building edges and point-light definition, with only small, softly integrated glazing highlights."
+  },
+  "text": "{\n  \"GLASS_PAIR_QC\": \"FAIL\",\n  \"PHOTOREALISM\": \"PASS\",\n  \"MATERIAL_REALISM\": \"PASS\",\n  \"ROOM_MATCH\": \"FAIL\",\n  \"TRANSMISSION_REALISM\": \"PASS\",\n  \"REFLECTION_INTEGRATION\": \"PASS\",\n  \"BEFORE_AFTER_CLARITY\": \"PASS\",\n  \"SAME_GEOMETRY\": \"PASS\",\n  \"TRANSITION_ALIGNMENT\": \"PASS\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"MINOR\": 0,\n  \"DEFECTS\": [\n    \"MAJOR: Both images show predominantly blue sky, a central window mullion, and buildings along the bottom; no recognizable bedroom interior is visible. The required evening-bedroom room match cannot be certified from these pixels. Visible mullion placement, skyline geometry, and city-light positions do align.\"\n  ],\n  \"REPAIR_INSTRUCTIONS\": \"Provide matching wider bedroom views that expose the interior geometry while preserving the aligned window and city composition. Retain the visible improvement in AFTER building edges and point-light definition, with only small, softly integrated glazing highlights.\"\n}"
+}

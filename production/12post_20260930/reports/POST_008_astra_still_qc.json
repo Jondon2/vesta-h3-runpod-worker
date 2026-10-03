@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "post": "POST_008",
+  "still": "POST_008_still.png",
+  "response_id": "resp_084d20e39fe08f9c016abddbcbc21487d1b3a4f4835b0b331c",
+  "parsed": {
+    "POST": "POST_008",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "PHOTOREALISM": "FAIL",
+    "ARCHITECTURE": "FAIL",
+    "MATERIALS": "PASS",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "FAIL",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Marble floor, especially the foreground",
+        "DESCRIPTION": "The stone pattern has irregular stepped and zigzag boundaries rather than coherent square checker tiles. This visibly malformed layout undermines architectural realism and does not satisfy the locked checker-marble floor."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_008\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"PHOTOREALISM\": \"FAIL\",\n  \"ARCHITECTURE\": \"FAIL\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"FAIL\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Marble floor, especially the foreground\",\n      \"DESCRIPTION\": \"The stone pattern has irregular stepped and zigzag boundaries rather than coherent square checker tiles. This visibly malformed layout undermines architectural realism and does not satisfy the locked checker-marble floor.\"\n    }\n  ]\n}"
+}

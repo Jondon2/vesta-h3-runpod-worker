@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_041bb24833a4180f016abe0bff7fb487d1bc0ef95e2061b546",
+  "parsed": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "WOOL_PAIR_QC": "FAIL",
+    "OAK_PAIR_QC": "FAIL",
+    "GLASS_PAIR_QC": "FAIL",
+    "PHOTOREALISM": "FAIL",
+    "MATERIAL_REALISM": "FAIL",
+    "ROOM_MATCH": "FAIL",
+    "BEFORE_AFTER_CLARITY": "FAIL",
+    "DETAIL_FOCUS": "FAIL",
+    "TRANSITION_ALIGNMENT": "PASS",
+    "SAME_GEOMETRY": "FAIL",
+    "CRITICAL": 1,
+    "MAJOR": 6,
+    "POST_005_V4_CREATIVE_PREFLIGHT": "FAIL",
+    "DEFECTS": [
+      "CRITICAL: LANTERN changes from an open cylindrical cage containing a smaller glass globe to a substantially larger closed sphere. This is an object and silhouette replacement, not one material change on the same geometry.",
+      "MAJOR: LANTERN_BEFORE has nearly featureless black framing and synthetic glass; AFTER reads as a uniformly emissive ribbed sphere rather than photographed paper. Its black block base, missing visible support seams and uniform glow do not match the approved lantern.",
+      "MAJOR: WOOL_BEFORE reads as a smooth molded sheet; AFTER adds only fine surface texture without convincing wool fibers, pile, thickness or textile edge detail. Neither reproduces the approved blanket's shaggy, draped character.",
+      "MAJOR: WOOL preserves framing and silhouette, but the subtle color and surface change does not clearly communicate a distinct wool design state. Dark exposure and weak texture visibility undermine detail inspection.",
+      "MAJOR: OAK preserves drawer and handle alignment, but BEFORE has flat, broadly mapped grain and AFTER mainly darkens it, obscuring finish detail. The slab-like drawer construction and oversized grain do not convincingly match the approved dresser's framed fronts and richer wood appearance.",
+      "MAJOR: GLASS preserves the mullion and exterior alignment, but the change reads primarily as blur versus sharpness. BEFORE's diffuse orange patch becomes a sharply bounded, flat-looking lantern reflection in AFTER; neither state provides convincing glass-surface detail or an unambiguous physical design change.",
+      "MAJOR: ROOM_MATCH fails across the set: LANTERN and GLASS use brighter cyan-blue exterior tones than the approved deep-navy evening view; WOOL has muddy brown lighting and a simplified bed presentation; OAK lacks the approved dresser's tonal depth and construction cues. The closeups collectively read as a separate rendered scene rather than details photographed in the approved bedroom."
+    ]
+  }
+}

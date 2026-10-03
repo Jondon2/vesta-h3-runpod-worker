@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_012406b4abcb210d016abe8c949a8887d1b43115836749c935",
+  "parsed": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "LANTERN_PHOTOREALISM": "FAIL",
+    "LANTERN_CONSTRUCTION_REALISM": "FAIL",
+    "LANTERN_REFLECTION_STATE_MATCH": "PASS",
+    "LANTERN_BEFORE_AFTER_CLARITY": "PASS",
+    "LANTERN_ROOM_MATCH": "PASS",
+    "LANTERN_FAIL_ONLY_RIB_DEPTH": "NO",
+    "CRITICAL": 0,
+    "MAJOR": 2,
+    "DEFECTS": [
+      "BEFORE reads as a dark synthetic render rather than a luxury interior photograph: the cage loses material definition, and the glass and base lack convincing photographic integration.",
+      "AFTER reads as a flat emissive shell, with broad hard-edged tonal regions and a visibly polygonal outline. Fine rib lines do not establish convincing paper texture, translucency, or handcrafted shade construction."
+    ]
+  }
+}

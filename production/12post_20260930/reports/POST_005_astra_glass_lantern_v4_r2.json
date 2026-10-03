@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_0ee3cf1eeeff5633016abe13eef76487d1a277ad071c8cb64f",
+  "parsed": {
+    "GLASS_PAIR_QC": "FAIL",
+    "LANTERN_PAIR_QC": "FAIL",
+    "GLASS_PHOTOREALISM": "FAIL",
+    "GLASS_MATERIAL_REALISM": "PASS",
+    "GLASS_TRANSMISSION_REALISM": "PASS",
+    "GLASS_REFLECTION_REALISM": "FAIL",
+    "GLASS_BEFORE_AFTER_CLARITY": "FAIL",
+    "GLASS_ROOM_MATCH": "PASS",
+    "LANTERN_PHOTOREALISM": "FAIL",
+    "LANTERN_CONSTRUCTION_REALISM": "FAIL",
+    "LANTERN_REFLECTION_STATE_MATCH": "PASS",
+    "LANTERN_BEFORE_AFTER_CLARITY": "PASS",
+    "LANTERN_ROOM_MATCH": "PASS",
+    "LANTERN_FAIL_ONLY_RIB_DEPTH": "NO",
+    "CRITICAL": 0,
+    "MAJOR": 3,
+    "DEFECTS": [
+      "GLASS_AFTER: The partial lantern reflection at the bottom is a hard-edged, flat peach shape rather than a realistically integrated reflection.",
+      "GLASS: Exterior detail remains similarly blurred in both stills. The change does not convincingly demonstrate clearer transmission with subtly richer, realistic reflections.",
+      "LANTERN_AFTER: The shade reads as a flat, nearly uniform emitter with broad tonal patches, no visible fine ribs, and no convincing paper texture or translucency."
+    ]
+  }
+}

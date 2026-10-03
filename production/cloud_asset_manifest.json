@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-03T11:46:00Z",
+  "source_root": "external/vesta-assets/blender",
+  "remote_root": "/workspace/vesta-v12",
+  "required_source_entries": [
+    "external/vesta-assets/blender/room.blend",
+    "external/vesta-assets/blender/assets",
+    "external/vesta-assets/blender/build_room.py",
+    "external/vesta-assets/blender/finish_*.py"
+  ],
+  "post_005_v4_entries": [
+    "production/12post_20260930/delivery/POST_005/v4/build_scene.py",
+    "production/12post_20260930/delivery/POST_005/v4/city_backplate.png",
+    "production/12post_20260930/delivery/POST_005/v4/city_detail_r3.png",
+    "production/12post_20260930/delivery/POST_005/v4/city_detail_r3_soft.png",
+    "production/12post_20260930/delivery/POST_005/v4/city_exterior.png",
+    "production/12post_20260930/delivery/POST_005/v4/city_sharp.png",
+    "production/12post_20260930/delivery/POST_005/v4/city_soft.png",
+    "production/12post_20260930/delivery/POST_005/v4/stills_glass_r8_20261003_remote",
+    "production/12post_20260930/delivery/POST_005/v4/stills_lantern_r13_20261003_remote"
+  ],
+  "remote_verification": {
+    "volume_id": "osjn0qnuao",
+    "data_center_id": "US-IL-1",
+    "blender": "5.2.2 LTS",
+    "gpu": "NVIDIA GeForce RTX 4090 24 GB",
+    "cycles_gpu": "PASS",
+    "missing_required_assets": 0,
+    "seeded_non_metadata_file_count": 111,
+    "status": "PASS"
+  },
+  "storage_policy": "Sources and rendered artifacts live on the persistent RunPod volume. Compact active QC inputs are copied to the GitHub Release; render binaries never enter Git history."
+}

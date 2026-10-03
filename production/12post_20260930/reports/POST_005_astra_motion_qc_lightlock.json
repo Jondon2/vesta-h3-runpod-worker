@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "response_id": "resp_0ae8f60b18fd3360016abdee7488ac87d1a50a8066c2ed7dea",
+  "parsed": {
+    "POST": "POST_005",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "MOTION_QC_PASS": false,
+    "LIGHTING_STABILITY": "FAIL",
+    "CAMERA_STABILITY": "PASS",
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Dresser, floor, and wall; first through last frames",
+        "DESCRIPTION": "Exposure and contrast drift visibly, especially across the dresser front and floor, with increasingly pronounced wood grain and darker shadows. Wall brightness also shifts. The lantern remains lit."
+      }
+    ]
+  },
+  "text": "{\"POST\":\"POST_005\",\"DECISION\":\"FAIL\",\"CRITICAL\":0,\"MAJOR\":1,\"MOTION_QC_PASS\":false,\"LIGHTING_STABILITY\":\"FAIL\",\"CAMERA_STABILITY\":\"PASS\",\"DEFECTS\":[{\"SEVERITY\":\"MAJOR\",\"LOCATION\":\"Dresser, floor, and wall; first through last frames\",\"DESCRIPTION\":\"Exposure and contrast drift visibly, especially across the dresser front and floor, with increasingly pronounced wood grain and darker shadows. Wall brightness also shifts. The lantern remains lit.\"}]}"
+}

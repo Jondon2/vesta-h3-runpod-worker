@@ -1,0 +1,16 @@
+{
+  "post": "POST_005",
+  "version": "SIX_SHOT_V4",
+  "video_cut": false,
+  "repair_pass": 1,
+  "POST_005_V4_CREATIVE_PREFLIGHT": "FAIL",
+  "CRITICAL": 1,
+  "MAJOR": 6,
+  "pairs": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "WOOL_PAIR_QC": "FAIL",
+    "OAK_PAIR_QC": "FAIL",
+    "GLASS_PAIR_QC": "PASS"
+  },
+  "note": "GLASS locked from stills_glass_r8_20261003_remote after Astra detail QC passed with CRITICAL=0 and MAJOR=0. The historical overall preflight remains failed until every remaining pair passes. Video was not cut. V5 was not created."
+}

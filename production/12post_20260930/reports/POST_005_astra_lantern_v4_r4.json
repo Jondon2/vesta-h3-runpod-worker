@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_040ac1d015771185016abe95d3ba2087d1b9b3d96a1ed2e814",
+  "parsed": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "LANTERN_PHOTOREALISM": "FAIL",
+    "LANTERN_CONSTRUCTION_REALISM": "FAIL",
+    "LANTERN_REFLECTION_STATE_MATCH": "PASS",
+    "LANTERN_BEFORE_AFTER_CLARITY": "PASS",
+    "LANTERN_ROOM_MATCH": "FAIL",
+    "LANTERN_FAIL_ONLY_RIB_DEPTH": "NO",
+    "CRITICAL": 0,
+    "MAJOR": 3,
+    "DEFECTS": [
+      "BEFORE: The cage glass has conspicuous angular refraction and faceted-looking internal surfaces. The bulb and glass read as synthetic geometry rather than a photographed clear-glass lantern.",
+      "AFTER: The shade reads as a uniformly colored emissive shell with a broad artificial shading division, not thin translucent paper. Paper fibers, convincing internal light diffusion, and handcrafted construction are not evident. Rib depth is not the sole defect.",
+      "ROOM MATCH: The detail dresser has a cooler gray-brown finish, exaggerated grain, and different visible drawer hardware from the dark warm-wood dresser in APPROVED_WIDE. The detail does not convincingly belong to the approved photographed room."
+    ]
+  }
+}

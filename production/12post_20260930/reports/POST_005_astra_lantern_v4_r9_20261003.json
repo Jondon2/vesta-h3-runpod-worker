@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "pair": "LANTERN",
+  "before": "production/12post_20260930/delivery/POST_005/v4/stills_lantern_r9_20261003_remote/LANTERN_BEFORE.png",
+  "after": "production/12post_20260930/delivery/POST_005/v4/stills_lantern_r9_20261003_remote/LANTERN_AFTER.png",
+  "parsed": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "PHOTOREALISM": "FAIL",
+    "MATERIAL_REALISM": "FAIL",
+    "ROOM_MATCH": "PASS",
+    "DETAIL_REALISM": "FAIL",
+    "BEFORE_AFTER_CLARITY": "PASS",
+    "SAME_GEOMETRY": "PASS",
+    "TRANSITION_ALIGNMENT": "PASS",
+    "CRITICAL": 0,
+    "MAJOR": 3,
+    "MINOR": 0,
+    "DEFECTS": [
+      "MAJOR: AFTER has angular shoulder contours and broad, sharply divided vertical shading bands, particularly left of center. The envelope reads as faceted rather than smoothly curved paper.",
+      "MAJOR: AFTER reads as a mostly opaque tan shell with repetitive horizontal striping. Fine structural ribs, natural paper translucency variation, a distinguishable glass component, and internal bulb/socket detail are not convincingly resolved; only broad cage-shaped shadows remain visible.",
+      "MAJOR: AFTER's swollen envelope intersects the cage visually: upper vertical bars disappear directly into the shoulder surface, while lower bars reappear through the envelope near the bottom ring. No openings, collars, or attachment details explain these junctions."
+    ],
+    "REPAIR_INSTRUCTIONS": "Preserve the existing camera, room, tabletop, base, and cage registration. Rebuild the AFTER envelope with continuous rounded curvature and smooth shading, removing angular contour segments and abrupt vertical tonal boundaries. Fit the envelope coherently inside the cage or provide physically credible openings and attachments wherever supports cross it. Render fine ribs with subtle relief, irregular paper transmission, identifiable glass edges/reflections, and a softly resolved internal bulb/socket and support assembly. Use physically transmitted illumination rather than a uniform opaque fill or added glow."
+  },
+  "text": "{\n  \"LANTERN_PAIR_QC\": \"FAIL\",\n  \"PHOTOREALISM\": \"FAIL\",\n  \"MATERIAL_REALISM\": \"FAIL\",\n  \"ROOM_MATCH\": \"PASS\",\n  \"DETAIL_REALISM\": \"FAIL\",\n  \"BEFORE_AFTER_CLARITY\": \"PASS\",\n  \"SAME_GEOMETRY\": \"PASS\",\n  \"TRANSITION_ALIGNMENT\": \"PASS\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 3,\n  \"MINOR\": 0,\n  \"DEFECTS\": [\n    \"MAJOR: AFTER has angular shoulder contours and broad, sharply divided vertical shading bands, particularly left of center. The envelope reads as faceted rather than smoothly curved paper.\",\n    \"MAJOR: AFTER reads as a mostly opaque tan shell with repetitive horizontal striping. Fine structural ribs, natural paper translucency variation, a distinguishable glass component, and internal bulb/socket detail are not convincingly resolved; only broad cage-shaped shadows remain visible.\",\n    \"MAJOR: AFTER's swollen envelope intersects the cage visually: upper vertical bars disappear directly into the shoulder surface, while lower bars reappear through the envelope near the bottom ring. No openings, collars, or attachment details explain these junctions.\"\n  ],\n  \"REPAIR_INSTRUCTIONS\": \"Preserve the existing camera, room, tabletop, base, and cage registration. Rebuild the AFTER envelope with continuous rounded curvature and smooth shading, removing angular contour segments and abrupt vertical tonal boundaries. Fit the envelope coherently inside the cage or provide physically credible openings and attachments wherever supports cross it. Render fine ribs with subtle relief, irregular paper transmission, identifiable glass edges/reflections, and a softly resolved internal bulb/socket and support assembly. Use physically transmitted illumination rather than a uniform opaque fill or added glow.\"\n}"
+}

@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "pair": "GLASS",
+  "before": "production/12post_20260930/delivery/POST_005/v4/stills_glass_r4_20261003_remote/GLASS_BEFORE.png",
+  "after": "production/12post_20260930/delivery/POST_005/v4/stills_glass_r4_20261003_remote/GLASS_AFTER.png",
+  "parsed": {
+    "GLASS_PAIR_QC": "FAIL",
+    "PHOTOREALISM": "FAIL",
+    "MATERIAL_REALISM": "FAIL",
+    "ROOM_MATCH": "PASS",
+    "TRANSMISSION_REALISM": "PASS",
+    "REFLECTION_INTEGRATION": "FAIL",
+    "BEFORE_AFTER_CLARITY": "PASS",
+    "SAME_GEOMETRY": "PASS",
+    "TRANSITION_ALIGNMENT": "PASS",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "MINOR": 0,
+    "DEFECTS": [
+      "A large, partially cropped peach-colored curved reflection remains at the bottom beside the central mullion, most clearly in AFTER. Its broad filled silhouette and discernible curved boundary are substantially larger than a small bulb highlight and read as a reflected shade/disk. BEFORE softens this shape but does not eliminate it."
+    ],
+    "REPAIR_INSTRUCTIONS": "Remove the broad peach shade/disk silhouette from the glazing in both renders through the physical reflection setup, not a painted mask. Retain only a small, soft, physically integrated bulb highlight. Preserve the matching mullion, skyline, rooftop details, city-light positions, and the visible transmission-clarity improvement in AFTER."
+  },
+  "text": "{\n  \"GLASS_PAIR_QC\": \"FAIL\",\n  \"PHOTOREALISM\": \"FAIL\",\n  \"MATERIAL_REALISM\": \"FAIL\",\n  \"ROOM_MATCH\": \"PASS\",\n  \"TRANSMISSION_REALISM\": \"PASS\",\n  \"REFLECTION_INTEGRATION\": \"FAIL\",\n  \"BEFORE_AFTER_CLARITY\": \"PASS\",\n  \"SAME_GEOMETRY\": \"PASS\",\n  \"TRANSITION_ALIGNMENT\": \"PASS\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"MINOR\": 0,\n  \"DEFECTS\": [\n    \"A large, partially cropped peach-colored curved reflection remains at the bottom beside the central mullion, most clearly in AFTER. Its broad filled silhouette and discernible curved boundary are substantially larger than a small bulb highlight and read as a reflected shade/disk. BEFORE softens this shape but does not eliminate it.\"\n  ],\n  \"REPAIR_INSTRUCTIONS\": \"Remove the broad peach shade/disk silhouette from the glazing in both renders through the physical reflection setup, not a painted mask. Retain only a small, soft, physically integrated bulb highlight. Preserve the matching mullion, skyline, rooftop details, city-light positions, and the visible transmission-clarity improvement in AFTER.\"\n}"
+}

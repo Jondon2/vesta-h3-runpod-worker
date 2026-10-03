@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "post": "POST_003",
+  "still": "POST_003_still_r1.png",
+  "response_id": "resp_0846df426294dc9e016abddbcba33487d197620bdf862e448a",
+  "parsed": {
+    "POST": "POST_003",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 3,
+    "PHOTOREALISM": "PASS",
+    "ARCHITECTURE": "FAIL",
+    "MATERIALS": "PASS",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "PASS",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Far pool edge, near center",
+        "DESCRIPTION": "Two separate white decorative objects are visible: a square lantern and an additional capped cylindrical object. The concept requires one stone lantern."
+      },
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Travertine deck immediately left of the lantern",
+        "DESCRIPTION": "An irregular dark slit interrupts the deck surface, with a visibly jagged, broken-looking stone edge."
+      },
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Pool surface, especially along the right coping",
+        "DESCRIPTION": "Visible waves and strongly distorted reflections make the water read as moving rather than the specified still-water hero."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_003\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 3,\n  \"PHOTOREALISM\": \"PASS\",\n  \"ARCHITECTURE\": \"FAIL\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"PASS\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Far pool edge, near center\",\n      \"DESCRIPTION\": \"Two separate white decorative objects are visible: a square lantern and an additional capped cylindrical object. The concept requires one stone lantern.\"\n    },\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Travertine deck immediately left of the lantern\",\n      \"DESCRIPTION\": \"An irregular dark slit interrupts the deck surface, with a visibly jagged, broken-looking stone edge.\"\n    },\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Pool surface, especially along the right coping\",\n      \"DESCRIPTION\": \"Visible waves and strongly distorted reflections make the water read as moving rather than the specified still-water hero.\"\n    }\n  ]\n}"
+}

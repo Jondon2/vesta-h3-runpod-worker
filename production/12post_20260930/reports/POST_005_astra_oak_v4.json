@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_0d5715d9139eef0a016abe19e947e487d1953fc883860775eb",
+  "parsed": {
+    "OAK_PAIR_QC": "FAIL",
+    "PHOTOREALISM": "FAIL",
+    "MATERIAL_REALISM": "FAIL",
+    "WOOD_GRAIN_UNIQUENESS": "FAIL",
+    "WOOD_CONSTRUCTION_LOGIC": "FAIL",
+    "SAME_GEOMETRY": "PASS",
+    "BEFORE_AFTER_CLARITY": "PASS",
+    "ROOM_MATCH": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 5,
+    "DEFECTS": [
+      "PHOTOREALISM: The visibly faceted, featureless lamp and soft, texture-mapped chest surfaces read as CG rather than photography.",
+      "MATERIAL_REALISM: Oak grain is oversized and blurred, with little visible pore or finish detail. AFTER becomes muddy and nearly black rather than convincingly refined dark oak.",
+      "WOOD_GRAIN_UNIQUENESS: The sweeping grain figure and knot placement above the handles repeat across the visible drawer fronts.",
+      "WOOD_CONSTRUCTION_LOGIC: Grain changes abruptly in horizontal bands within drawer faces without corresponding board joints; the mapping does not consistently follow the constructed boards.",
+      "ROOM_MATCH: The close-ups replace the approved ribbed paper lamp and pale base with a smooth globe and black base. Flat drawer faces also do not match the approved chest's framed detailing."
+    ]
+  }
+}

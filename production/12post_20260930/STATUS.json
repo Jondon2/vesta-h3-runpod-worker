@@ -1,0 +1,43 @@
+{
+  "as_of": "2026-10-01T03:56:00Z",
+  "elapsed_min": 96,
+  "remaining_min": 144,
+  "TOTAL_POSTS": 12,
+  "STILL_QC_PASS": [
+    "POST_005",
+    "POST_009"
+  ],
+  "MOTION_STARTED": [
+    "POST_005",
+    "POST_009"
+  ],
+  "MOTION_QC_PASS": [],
+  "4K_PASS": [],
+  "WATERMARK_PASS": [],
+  "FINAL_READY": [],
+  "REPAIRING": [
+    "POST_001",
+    "POST_002",
+    "POST_003",
+    "POST_004",
+    "POST_006",
+    "POST_007",
+    "POST_011",
+    "POST_012"
+  ],
+  "FAILED": [],
+  "h3_blocker": "ghcr.io/jondon2/vesta-h3-runpod-worker:runtime-v6 pull denied with credential and anonymously. H3 workers cannot start. Jobs left IN_QUEUE. Worker cap set back to 0 to stop the pull-fail spawn.",
+  "h3_jobs": {
+    "POST_005": "147bb9a2-f287-4f1d-9131-6d2314c9a17c-u2",
+    "POST_009": "a865541b-b88c-492d-ac9f-fc5fb84a21ab-u2"
+  },
+  "flux_in_progress": {
+    "POST_008": "1f185b63-2efd-4ab3-afbe-5a196f5e2c9f-u1",
+    "POST_010": "b336ecc5-a813-4692-a7a7-26b50c2c5df8-u2"
+  },
+  "flux_repair_queue": {
+    "POST_003": "8fc929de-ede2-4651-95a0-cbc3d067fcc8-u2",
+    "POST_007": "e0a9112d-a2b4-48ff-9aef-b4032793f0af-u1",
+    "POST_012": "df470ee1-5329-4ac1-9954-1b45ce67c543-u2"
+  }
+}

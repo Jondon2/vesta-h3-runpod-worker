@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_047d50885683752f016abe9e31b3f887d18459f56464e94bb3",
+  "parsed": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "LANTERN_PHOTOREALISM": "FAIL",
+    "LANTERN_CONSTRUCTION_REALISM": "FAIL",
+    "LANTERN_REFLECTION_STATE_MATCH": "PASS",
+    "LANTERN_BEFORE_AFTER_CLARITY": "PASS",
+    "LANTERN_ROOM_MATCH": "PASS",
+    "LANTERN_FAIL_ONLY_RIB_DEPTH": "NO",
+    "CRITICAL": 0,
+    "MAJOR": 3,
+    "DEFECTS": [
+      "BEFORE reads as a synthetic render rather than a luxury interior photograph: overly uniform cage materials, a featureless bulb, and weak contact lighting.",
+      "AFTER reads as a uniformly emissive solid shell, lacking convincing paper texture, translucency, and internal-light variation.",
+      "AFTER has pronounced, mechanically regular corrugations rather than fine, shallow ribs supporting thin handcrafted paper."
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "http": 200,
+  "response_id": "resp_0c2b95a0c4701c87016abdf8187d8487d1a14863a525cad0c3",
+  "model": "gpt-6-astra",
+  "text": "{\n  \"POST\": \"POST_005\",\n  \"VERSION\": \"SIX_SHOT_V2\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 5,\n  \"FULLY_FURNISHED_ROOM\": \"PASS\",\n  \"SAME_ROOM_CONTINUITY\": \"PASS\",\n  \"DETAIL_FOCUS\": \"FAIL\",\n  \"BEFORE_AFTER_CLARITY\": \"FAIL\",\n  \"TRANSITION_ALIGNMENT\": \"FAIL\",\n  \"TRANSFORMATION_PAYOFF\": \"FAIL\",\n  \"FINAL_WIDE_REVEAL\": \"PASS\",\n  \"PHOTOREALISM\": \"FAIL\",\n  \"REFERENCE_EDITING_LANGUAGE\": \"FAIL\",\n  \"CREATIVE_FINAL\": false,\n  \"DEFECTS\": [\n    \"Lantern BEFORE has a flat gray overlay with a displaced warm crescent along its upper-right edge and a smeared base; it does not read as a naturally unlit paper lantern.\",\n    \"Wool BEFORE is selectively blurred into a smooth tan patch while adjacent furniture remains sharp; the change reads as focus correction rather than material transformation.\",\n    \"Oak BEFORE is covered by a large brown, blurred patch with hard rectangular boundaries, spill beyond the chest, and obscured contours; the pair fails clean silhouette alignment.\",\n    \"Glass BEFORE replaces the city with nearly uniform navy paint, leaving cutout edges around the lantern and darkening its top handle; the edit is not confined cleanly to the glass.\",\n    \"The establishing and final frames already show essentially the same finished materials and lighting; the intervening pairs restore damaged-looking patches rather than deliver a convincing cumulative transformation.\"\n  ]\n}",
+  "parsed": {
+    "POST": "POST_005",
+    "VERSION": "SIX_SHOT_V2",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 5,
+    "FULLY_FURNISHED_ROOM": "PASS",
+    "SAME_ROOM_CONTINUITY": "PASS",
+    "DETAIL_FOCUS": "FAIL",
+    "BEFORE_AFTER_CLARITY": "FAIL",
+    "TRANSITION_ALIGNMENT": "FAIL",
+    "TRANSFORMATION_PAYOFF": "FAIL",
+    "FINAL_WIDE_REVEAL": "PASS",
+    "PHOTOREALISM": "FAIL",
+    "REFERENCE_EDITING_LANGUAGE": "FAIL",
+    "CREATIVE_FINAL": false,
+    "DEFECTS": [
+      "Lantern BEFORE has a flat gray overlay with a displaced warm crescent along its upper-right edge and a smeared base; it does not read as a naturally unlit paper lantern.",
+      "Wool BEFORE is selectively blurred into a smooth tan patch while adjacent furniture remains sharp; the change reads as focus correction rather than material transformation.",
+      "Oak BEFORE is covered by a large brown, blurred patch with hard rectangular boundaries, spill beyond the chest, and obscured contours; the pair fails clean silhouette alignment.",
+      "Glass BEFORE replaces the city with nearly uniform navy paint, leaving cutout edges around the lantern and darkening its top handle; the edit is not confined cleanly to the glass.",
+      "The establishing and final frames already show essentially the same finished materials and lighting; the intervening pairs restore damaged-looking patches rather than deliver a convincing cumulative transformation."
+    ]
+  }
+}

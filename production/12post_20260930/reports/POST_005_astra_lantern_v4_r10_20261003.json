@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "pair": "LANTERN",
+  "before": "/Users/jonathanbemenu/vesta-h3-runpod-worker/production/12post_20260930/delivery/POST_005/v4/stills_lantern_r10_20261003_remote/LANTERN_BEFORE.png",
+  "after": "/Users/jonathanbemenu/vesta-h3-runpod-worker/production/12post_20260930/delivery/POST_005/v4/stills_lantern_r10_20261003_remote/LANTERN_AFTER.png",
+  "parsed": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "PHOTOREALISM": "FAIL",
+    "MATERIAL_REALISM": "FAIL",
+    "CONSTRUCTION_REALISM": "FAIL",
+    "PAPER_REALISM": "FAIL",
+    "RIB_REALISM": "FAIL",
+    "TRANSMITTED_LIGHT_VARIATION": "FAIL",
+    "REFLECTION_STATE_MATCH": "PASS",
+    "BEFORE_AFTER_CLARITY": "PASS",
+    "ROOM_MATCH": "PASS",
+    "SAME_GEOMETRY": "PASS",
+    "TRANSITION_ALIGNMENT": "PASS",
+    "CRITICAL": 1,
+    "MAJOR": 5,
+    "MINOR": 0,
+    "DEFECTS": [
+      "CRITICAL: AFTER has a large, sharply bounded tan oval region against a pale crescent across the shade's front-right surface. This reads as a cutout or overlapping shell rather than one continuous paper envelope.",
+      "MAJOR: AFTER's broad paper surfaces are smooth and largely featureless; visible fibre, irregular pigment and fine thickness variation do not resolve. The tan region reads as opaque molded material.",
+      "MAJOR: AFTER lacks a convincing localized internal-light gradient. The abrupt pale-to-tan boundary dominates instead of softly varying transmission through thin paper.",
+      "MAJOR: AFTER's ribs read as uniformly spaced dark contour stripes, without convincing shallow relief or resolved attachment collars at the shade's poles.",
+      "MAJOR: The central socket support visibly terminates above the white base in BEFORE, leaving its mounting unresolved. AFTER also lacks a readable connection securing the shade to the support assembly.",
+      "MAJOR: In both images, cage rods and hoops have highly uniform surfaces and primitive-looking junctions, without convincing fabrication details or small construction irregularities. BEFORE's bulb is an almost flat white silhouette with little envelope shading."
+    ],
+    "REPAIR_INSTRUCTIONS": "Preserve the current camera, room, tabletop, base and cage registration. Replace the split-looking shade with one continuous smooth thin-paper envelope, eliminating the hard oval boundary and any overlapping shell appearance. Add restrained, non-repeating fibre, pigment and thickness variation. Form fine shallow ribs with subtle relief and physically connected top and bottom collars. Illuminate through the paper from a resolved internal bulb, producing soft source-dependent transmission, rib attenuation and corresponding nearby spill rather than flat pale and tan regions. Connect the socket stem visibly to the base and establish a coherent shade-support assembly. Refine the existing cage with believable junctions, edge treatment and subtle roughness variation; give BEFORE's bulb a naturally shaded frosted envelope and credible socket seating."
+  },
+  "text": "{\n  \"LANTERN_PAIR_QC\": \"FAIL\",\n  \"PHOTOREALISM\": \"FAIL\",\n  \"MATERIAL_REALISM\": \"FAIL\",\n  \"CONSTRUCTION_REALISM\": \"FAIL\",\n  \"PAPER_REALISM\": \"FAIL\",\n  \"RIB_REALISM\": \"FAIL\",\n  \"TRANSMITTED_LIGHT_VARIATION\": \"FAIL\",\n  \"REFLECTION_STATE_MATCH\": \"PASS\",\n  \"BEFORE_AFTER_CLARITY\": \"PASS\",\n  \"ROOM_MATCH\": \"PASS\",\n  \"SAME_GEOMETRY\": \"PASS\",\n  \"TRANSITION_ALIGNMENT\": \"PASS\",\n  \"CRITICAL\": 1,\n  \"MAJOR\": 5,\n  \"MINOR\": 0,\n  \"DEFECTS\": [\n    \"CRITICAL: AFTER has a large, sharply bounded tan oval region against a pale crescent across the shade's front-right surface. This reads as a cutout or overlapping shell rather than one continuous paper envelope.\",\n    \"MAJOR: AFTER's broad paper surfaces are smooth and largely featureless; visible fibre, irregular pigment and fine thickness variation do not resolve. The tan region reads as opaque molded material.\",\n    \"MAJOR: AFTER lacks a convincing localized internal-light gradient. The abrupt pale-to-tan boundary dominates instead of softly varying transmission through thin paper.\",\n    \"MAJOR: AFTER's ribs read as uniformly spaced dark contour stripes, without convincing shallow relief or resolved attachment collars at the shade's poles.\",\n    \"MAJOR: The central socket support visibly terminates above the white base in BEFORE, leaving its mounting unresolved. AFTER also lacks a readable connection securing the shade to the support assembly.\",\n    \"MAJOR: In both images, cage rods and hoops have highly uniform surfaces and primitive-looking junctions, without convincing fabrication details or small construction irregularities. BEFORE's bulb is an almost flat white silhouette with little envelope shading.\"\n  ],\n  \"REPAIR_INSTRUCTIONS\": \"Preserve the current camera, room, tabletop, base and cage registration. Replace the split-looking shade with one continuous smooth thin-paper envelope, eliminating the hard oval boundary and any overlapping shell appearance. Add restrained, non-repeating fibre, pigment and thickness variation. Form fine shallow ribs with subtle relief and physically connected top and bottom collars. Illuminate through the paper from a resolved internal bulb, producing soft source-dependent transmission, rib attenuation and corresponding nearby spill rather than flat pale and tan regions. Connect the socket stem visibly to the base and establish a coherent shade-support assembly. Refine the existing cage with believable junctions, edge treatment and subtle roughness variation; give BEFORE's bulb a naturally shaded frosted envelope and credible socket seating.\"\n}"
+}

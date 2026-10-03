@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "pair": "LANTERN",
+  "before": "production/12post_20260930/delivery/POST_005/v4/stills_lantern_r8_20261003_remote/LANTERN_BEFORE.png",
+  "after": "production/12post_20260930/delivery/POST_005/v4/stills_lantern_r8_20261003_remote/LANTERN_AFTER.png",
+  "parsed": {
+    "LANTERN_PAIR_QC": "FAIL",
+    "PHOTOREALISM": "FAIL",
+    "MATERIAL_REALISM": "FAIL",
+    "ROOM_MATCH": "PASS",
+    "DETAIL_REALISM": "FAIL",
+    "BEFORE_AFTER_CLARITY": "PASS",
+    "SAME_GEOMETRY": "FAIL",
+    "TRANSITION_ALIGNMENT": "PASS",
+    "CRITICAL": 0,
+    "MAJOR": 4,
+    "MINOR": 0,
+    "DEFECTS": [
+      "MAJOR: AFTER has visibly segmented curvature along its upper-left outline and broad angular shading patches across the upper and central shade; it does not read as a smoothly curved paper shell.",
+      "MAJOR: AFTER reads as a nearly uniformly luminous cream surface with repetitive horizontal banding. Natural paper translucency variation and identifiable glass reflections or thickness are not evident.",
+      "MAJOR: AFTER shows no discernible internal bulb, socket, or support structure through the shade, leaving the illumination insufficiently connected to a visible physical assembly.",
+      "MAJOR: The tall cylindrical BEFORE cage becomes a wider spherical AFTER shade. The BEFORE top cap and upper framework extend above the AFTER envelope, so this does not read as the same underlying lantern geometry receiving a material upgrade."
+    ],
+    "REPAIR_INSTRUCTIONS": "Preserve the matched camera, room, tabletop, and base registration. Establish compatible underlying lantern geometry across both states. Smooth the AFTER silhouette and eliminate angular shading patches. Replace the uniform luminous surface with thin paper showing restrained fiber and thickness variation, physically dimensional fine ribs, and localized light transmission from the bulb. Make the internal bulb, socket, and supports subtly legible, and add identifiable glass thickness and reflections without an artificial glow overlay."
+  },
+  "text": "{\n  \"LANTERN_PAIR_QC\": \"FAIL\",\n  \"PHOTOREALISM\": \"FAIL\",\n  \"MATERIAL_REALISM\": \"FAIL\",\n  \"ROOM_MATCH\": \"PASS\",\n  \"DETAIL_REALISM\": \"FAIL\",\n  \"BEFORE_AFTER_CLARITY\": \"PASS\",\n  \"SAME_GEOMETRY\": \"FAIL\",\n  \"TRANSITION_ALIGNMENT\": \"PASS\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 4,\n  \"MINOR\": 0,\n  \"DEFECTS\": [\n    \"MAJOR: AFTER has visibly segmented curvature along its upper-left outline and broad angular shading patches across the upper and central shade; it does not read as a smoothly curved paper shell.\",\n    \"MAJOR: AFTER reads as a nearly uniformly luminous cream surface with repetitive horizontal banding. Natural paper translucency variation and identifiable glass reflections or thickness are not evident.\",\n    \"MAJOR: AFTER shows no discernible internal bulb, socket, or support structure through the shade, leaving the illumination insufficiently connected to a visible physical assembly.\",\n    \"MAJOR: The tall cylindrical BEFORE cage becomes a wider spherical AFTER shade. The BEFORE top cap and upper framework extend above the AFTER envelope, so this does not read as the same underlying lantern geometry receiving a material upgrade.\"\n  ],\n  \"REPAIR_INSTRUCTIONS\": \"Preserve the matched camera, room, tabletop, and base registration. Establish compatible underlying lantern geometry across both states. Smooth the AFTER silhouette and eliminate angular shading patches. Replace the uniform luminous surface with thin paper showing restrained fiber and thickness variation, physically dimensional fine ribs, and localized light transmission from the bulb. Make the internal bulb, socket, and supports subtly legible, and add identifiable glass thickness and reflections without an artificial glow overlay.\"\n}"
+}

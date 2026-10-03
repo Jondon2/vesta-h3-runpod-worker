@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "post": "POST_008",
+  "still": "POST_008_still_r1.png",
+  "response_id": "resp_0faa8ced655e9afc016abde625073487d188df4fd4d384ccfa",
+  "parsed": {
+    "POST": "POST_008",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "PHOTOREALISM": "FAIL",
+    "ARCHITECTURE": "FAIL",
+    "MATERIALS": "FAIL",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "FAIL",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Repaired marble floor, throughout the visible field in images 2 and 3, especially the foreground and center",
+        "DESCRIPTION": "The prior defect remains visible: gray and white marble regions have irregular stepped, notched, and zigzag boundaries instead of coherent square checker tiles. Tile edges do not form a consistent perspective grid, and several regions merge into elongated shapes. The floor-only repair has not resolved the required geometry."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_008\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"PHOTOREALISM\": \"FAIL\",\n  \"ARCHITECTURE\": \"FAIL\",\n  \"MATERIALS\": \"FAIL\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"FAIL\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Repaired marble floor, throughout the visible field in images 2 and 3, especially the foreground and center\",\n      \"DESCRIPTION\": \"The prior defect remains visible: gray and white marble regions have irregular stepped, notched, and zigzag boundaries instead of coherent square checker tiles. Tile edges do not form a consistent perspective grid, and several regions merge into elongated shapes. The floor-only repair has not resolved the required geometry.\"\n    }\n  ]\n}"
+}

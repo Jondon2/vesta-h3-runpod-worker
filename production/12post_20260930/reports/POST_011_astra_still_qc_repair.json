@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "post": "POST_011",
+  "still": "POST_011_still_r2.png",
+  "response_id": "resp_09280855354f6dbe016abde625015c87d18fe602ed9686bca0",
+  "parsed": {
+    "POST": "POST_011",
+    "DECISION": "FAIL",
+    "CRITICAL": 0,
+    "MAJOR": 1,
+    "PHOTOREALISM": "PASS",
+    "ARCHITECTURE": "PASS",
+    "MATERIALS": "PASS",
+    "LIGHTING": "PASS",
+    "SCALE": "PASS",
+    "COMPOSITION": "PASS",
+    "REFERENCE_QUALITY_FLOOR": "PASS",
+    "DESIGN_INTENT": "FAIL",
+    "STILL_QC_PASS": false,
+    "DEFECTS": [
+      {
+        "SEVERITY": "MAJOR",
+        "LOCATION": "Brass wall-fitting row above the stone vanity, visible in images 2 and 3.",
+        "DESCRIPTION": "Four separate brass wall fittings remain visible: a small projecting fitting at left, two round central fittings, and a projecting fitting at right. The prior count defect persists; the locked requirement is exactly three. Confine correction to this fitting row."
+      }
+    ]
+  },
+  "text": "{\n  \"POST\": \"POST_011\",\n  \"DECISION\": \"FAIL\",\n  \"CRITICAL\": 0,\n  \"MAJOR\": 1,\n  \"PHOTOREALISM\": \"PASS\",\n  \"ARCHITECTURE\": \"PASS\",\n  \"MATERIALS\": \"PASS\",\n  \"LIGHTING\": \"PASS\",\n  \"SCALE\": \"PASS\",\n  \"COMPOSITION\": \"PASS\",\n  \"REFERENCE_QUALITY_FLOOR\": \"PASS\",\n  \"DESIGN_INTENT\": \"FAIL\",\n  \"STILL_QC_PASS\": false,\n  \"DEFECTS\": [\n    {\n      \"SEVERITY\": \"MAJOR\",\n      \"LOCATION\": \"Brass wall-fitting row above the stone vanity, visible in images 2 and 3.\",\n      \"DESCRIPTION\": \"Four separate brass wall fittings remain visible: a small projecting fitting at left, two round central fittings, and a projecting fitting at right. The prior count defect persists; the locked requirement is exactly three. Confine correction to this fitting row.\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "response_id": "resp_09dff5b0a89b80e5016abdee74858487d19bc79c13eb4faf55",
+  "parsed": {
+    "POST": "POST_011",
+    "DECISION": "PASS",
+    "CRITICAL": 0,
+    "MAJOR": 0,
+    "STILL_QC_PASS": true,
+    "DEFECTS": []
+  },
+  "text": "{\"POST\":\"POST_011\",\"DECISION\":\"PASS\",\"CRITICAL\":0,\"MAJOR\":0,\"STILL_QC_PASS\":true,\"DEFECTS\":[]}"
+}

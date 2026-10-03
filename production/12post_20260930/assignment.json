@@ -1,0 +1,1008 @@
+{
+  "production": "VESTA_12_POST",
+  "started_at": "2026-09-30T21:20:00-05:00",
+  "hard_target_hours": 4,
+  "delivery": {
+    "width": 2160,
+    "height": 3840,
+    "container": "mp4",
+    "duration_tolerance_sec": 0.1,
+    "native_motion": "MiniMax H3, 24fps, length on 17k+5 grid, short edge 768 (768x1344)",
+    "duration_method": "Generate the shortest legal H3 length that is at least the reference duration minus 0.10s. Trim the tail with ffmpeg to the reference duration. No speed ramp, no frame interpolation. Endings are holds so the trim is dead tail.",
+    "upscale": "Only after shot QC pass. Target 2160x3840. Preserve texture and architectural edges. No oversharpen, no invented detail."
+  },
+  "pool": {
+    "candidates_ingested": 14,
+    "assigned": 12,
+    "held": [
+      "INSPO_04",
+      "INSPO_05"
+    ],
+    "held_reason": "Both contain people and an identifiable event or celebrity interior. They set a lighting and material note only. They are not assigned a post duration."
+  },
+  "endpoints_observed": {
+    "h3": {
+      "id": "f4xegabv7ij4ob",
+      "name": "vesta-comfyui-production",
+      "workers_min": 0,
+      "workers_max": 0,
+      "note": "Parked. Do not start until a still records STILL_QC_PASS."
+    },
+    "flux_sibling_already_hot": {
+      "id": "bglox7us4v8cnp",
+      "name": "vesta-flux2-d02-1900-sibling",
+      "workers_min": 1,
+      "workers_max": 1,
+      "note": "Already at min=1 when this production started. Not created by this run. Not used for these posts."
+    }
+  },
+  "posts": [
+    {
+      "post": "POST_001",
+      "reference": "INSPO_01",
+      "duration_sec": 13.325397,
+      "h3_length": 328,
+      "h3_native_sec": 13.666667,
+      "trim_to_sec": 13.325397,
+      "cuts": [
+        2.399,
+        4.531,
+        6.663,
+        8.795,
+        10.927
+      ],
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One apartment. The limewashed corridor and the cream salon are the same home. Cream sofa, linen cushions, a low oak table, a wool rug, one framed work, a ceramic lamp. The corridor stays quiet: one bench is enough.",
+      "hero_still": "A tall limewashed corridor, herringbone oak, one dark oak door ajar onto a cream salon in north light.",
+      "room": "limewashed corridor opening onto a cream salon with sofa, table, and rug",
+      "furnishing": "Cream sofa, linen cushions, a low oak table, a wool rug, one framed work, a ceramic lamp. The corridor stays quiet: one bench is enough.",
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 2.399,
+          "picture": "Wide or medium-wide view of the fully furnished room: limewashed corridor opening onto a cream salon with sofa, table, and rug."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 2.399,
+          "to_sec": 4.531,
+          "picture": "BEFORE to AFTER: herringbone floor. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 4.531,
+          "to_sec": 6.663,
+          "picture": "BEFORE to AFTER: oak door. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 6.663,
+          "to_sec": 8.795,
+          "picture": "BEFORE to AFTER: limewash. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 8.795,
+          "to_sec": 10.927,
+          "picture": "BEFORE to AFTER: salon seating. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 10.927,
+          "to_sec": 13.325,
+          "picture": "Return to the wider furnished room. Completed design: limewashed corridor opening onto a cream salon with sofa, table, and rug."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_002",
+      "reference": "INSPO_02",
+      "duration_sec": 6.66127,
+      "h3_length": 158,
+      "h3_native_sec": 6.583333,
+      "trim_to_sec": null,
+      "duration_note": "158 frames at 24fps is 6.583s, inside 6.661\u00b10.10. Deliver native. No pad.",
+      "cuts": [
+        1.199,
+        2.265,
+        3.331,
+        4.396,
+        5.462
+      ],
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One sitting room. The materials are the room, not a sample board. Oatmeal boucle sofa, blackened-oak side table, limestone plinth, one bowl, a wool rug. No zebra cloth.",
+      "hero_still": "Fluted plaster cabinet doors, a stone finial, raking window light, blackened oak floor.",
+      "room": "sitting room with boucle sofa, oak table, limestone, and wool rug",
+      "furnishing": "Oatmeal boucle sofa, blackened-oak side table, limestone plinth, one bowl, a wool rug. No zebra cloth.",
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 1.199,
+          "picture": "Wide or medium-wide view of the fully furnished room: sitting room with boucle sofa, oak table, limestone, and wool rug."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 1.199,
+          "to_sec": 2.265,
+          "picture": "BEFORE to AFTER: fluted plaster. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 2.265,
+          "to_sec": 3.331,
+          "picture": "BEFORE to AFTER: stone finial. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 3.331,
+          "to_sec": 4.396,
+          "picture": "BEFORE to AFTER: boucle. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 4.396,
+          "to_sec": 5.462,
+          "picture": "BEFORE to AFTER: blackened oak floor. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 5.462,
+          "to_sec": 6.661,
+          "picture": "Return to the wider furnished room. Completed design: sitting room with boucle sofa, oak table, limestone, and wool rug."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_003",
+      "reference": "INSPO_03",
+      "duration_sec": 10.724762,
+      "h3_length": 260,
+      "h3_native_sec": 10.833333,
+      "trim_to_sec": 10.724762,
+      "cuts": [
+        1.93,
+        3.646,
+        5.362,
+        7.078,
+        8.794
+      ],
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One indoor pool court, furnished at the edge so it reads as a house, not a monument. A low daybed, a folded linen throw, the single stone lantern, a stone ledge used as a table. No gold mosaic, no statues.",
+      "hero_still": "Still water, travertine pier, a single paper-white stone lantern, daylight from a high slot.",
+      "room": "indoor pool court with a daybed, a throw, and one lantern",
+      "furnishing": "A low daybed, a folded linen throw, the single stone lantern, a stone ledge used as a table. No gold mosaic, no statues.",
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 1.93,
+          "picture": "Wide or medium-wide view of the fully furnished room: indoor pool court with a daybed, a throw, and one lantern."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 1.93,
+          "to_sec": 3.646,
+          "picture": "BEFORE to AFTER: still water. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 3.646,
+          "to_sec": 5.362,
+          "picture": "BEFORE to AFTER: single lantern. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 5.362,
+          "to_sec": 7.078,
+          "picture": "BEFORE to AFTER: travertine edge. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 7.078,
+          "to_sec": 8.794,
+          "picture": "BEFORE to AFTER: daylight slot. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 8.794,
+          "to_sec": 10.725,
+          "picture": "Return to the wider furnished room. Completed design: indoor pool court with a daybed, a throw, and one lantern."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_004",
+      "reference": "INSPO_06",
+      "duration_sec": 15.066893,
+      "h3_length": 362,
+      "h3_native_sec": 15.083333,
+      "trim_to_sec": null,
+      "duration_note": "362/24 = 15.083s, delta +0.016s, inside tolerance. Deliver native.",
+      "cuts": [
+        2.712,
+        5.123,
+        7.533,
+        9.944,
+        12.355
+      ],
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One opening into one furnished room. The door changes. The room does not swap. Beyond the door: a bench, a plaster wall, one artwork, a stone threshold, a rug just inside.",
+      "hero_still": "Carved cedar door in a limewashed jamb, raking afternoon light, stone threshold.",
+      "room": "architectural opening into a furnished room",
+      "furnishing": "Beyond the door: a bench, a plaster wall, one artwork, a stone threshold, a rug just inside.",
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 2.712,
+          "picture": "Wide or medium-wide view of the fully furnished room: architectural opening into a furnished room."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 2.712,
+          "to_sec": 5.123,
+          "picture": "BEFORE to AFTER: carved cedar. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 5.123,
+          "to_sec": 7.533,
+          "picture": "BEFORE to AFTER: pierced brass. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 7.533,
+          "to_sec": 9.944,
+          "picture": "BEFORE to AFTER: lime plaster. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 9.944,
+          "to_sec": 12.355,
+          "picture": "BEFORE to AFTER: indigo timber. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 12.355,
+          "to_sec": 15.067,
+          "picture": "Return to the wider furnished room. Completed design: architectural opening into a furnished room."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_005",
+      "reference": "INSPO_07",
+      "duration_sec": 10.330023,
+      "h3_length": 260,
+      "h3_native_sec": 10.833333,
+      "trim_to_sec": 10.330023,
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One evening bedroom, fully furnished. The lantern is the detail, not the whole post. Oatmeal wool daybed, dark oak chest, paper lantern, night window, a low rug, one chair pulled aside. No type on screen.",
+      "hero_still": "Paper lantern on a dark oak chest, wool daybed edge, city night in the window glass.",
+      "room": "evening bedroom with wool daybed, oak chest, lantern, and night window",
+      "furnishing": "Oatmeal wool daybed, dark oak chest, paper lantern, night window, a low rug, one chair pulled aside. No type on screen.",
+      "cuts": [
+        1.859,
+        3.512,
+        5.165,
+        6.818,
+        8.471
+      ],
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 1.859,
+          "picture": "Wide or medium-wide view of the fully furnished room: evening bedroom with wool daybed, oak chest, lantern, and night window."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 1.859,
+          "to_sec": 3.512,
+          "picture": "BEFORE to AFTER: lantern lit. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 3.512,
+          "to_sec": 5.165,
+          "picture": "BEFORE to AFTER: wool. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 5.165,
+          "to_sec": 6.818,
+          "picture": "BEFORE to AFTER: dark oak. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 6.818,
+          "to_sec": 8.471,
+          "picture": "BEFORE to AFTER: city glass. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 8.471,
+          "to_sec": 10.33,
+          "picture": "Return to the wider furnished room. Completed design: evening bedroom with wool daybed, oak chest, lantern, and night window."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_006",
+      "reference": "INSPO_08",
+      "duration_sec": 11.374921,
+      "h3_length": 277,
+      "h3_native_sec": 11.541667,
+      "trim_to_sec": 11.374921,
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One afternoon living room. The sun patch is a detail on a furnished floor. Cream sofa, round walnut table, oatmeal wool rug, one lamp off-frame, a low shelf with two objects. No people, no animal.",
+      "hero_still": "Hard sun rectangle on oatmeal wool, walnut table leg, cream upholstery edge.",
+      "room": "afternoon living room with cream sofa, walnut table, and wool rug",
+      "furnishing": "Cream sofa, round walnut table, oatmeal wool rug, one lamp off-frame, a low shelf with two objects. No people, no animal.",
+      "cuts": [
+        2.047,
+        3.867,
+        5.687,
+        7.507,
+        9.327
+      ],
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 2.047,
+          "picture": "Wide or medium-wide view of the fully furnished room: afternoon living room with cream sofa, walnut table, and wool rug."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 2.047,
+          "to_sec": 3.867,
+          "picture": "BEFORE to AFTER: hard sun rectangle. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 3.867,
+          "to_sec": 5.687,
+          "picture": "BEFORE to AFTER: table leg. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 5.687,
+          "to_sec": 7.507,
+          "picture": "BEFORE to AFTER: sofa edge. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 7.507,
+          "to_sec": 9.327,
+          "picture": "BEFORE to AFTER: wool. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 9.327,
+          "to_sec": 11.375,
+          "picture": "Return to the wider furnished room. Completed design: afternoon living room with cream sofa, walnut table, and wool rug."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_007",
+      "reference": "IG_01",
+      "duration_sec": 10.794422,
+      "h3_length": 260,
+      "h3_native_sec": 10.833333,
+      "trim_to_sec": 10.794422,
+      "cuts": [
+        1.943,
+        3.67,
+        5.397,
+        7.124,
+        8.851
+      ],
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One kitchen, furnished and in use as a room, not a joint sample. Oak table or island with stone top, two stools, a bowl, a linen runner, open shelf with a few vessels, linear light.",
+      "hero_still": "Oak edge against a limestone counter, a hairline shadow, warm linear light in the reveal.",
+      "room": "kitchen with island, stools, shelf, and linear light",
+      "furnishing": "Oak table or island with stone top, two stools, a bowl, a linen runner, open shelf with a few vessels, linear light.",
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 1.943,
+          "picture": "Wide or medium-wide view of the fully furnished room: kitchen with island, stools, shelf, and linear light."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 1.943,
+          "to_sec": 3.67,
+          "picture": "BEFORE to AFTER: oak-to-stone joint. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 3.67,
+          "to_sec": 5.397,
+          "picture": "BEFORE to AFTER: lit reveal. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 5.397,
+          "to_sec": 7.124,
+          "picture": "BEFORE to AFTER: flush pull. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 7.124,
+          "to_sec": 8.851,
+          "picture": "BEFORE to AFTER: vessels. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 8.851,
+          "to_sec": 10.794,
+          "picture": "Return to the wider furnished room. Completed design: kitchen with island, stools, shelf, and linear light."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_008",
+      "reference": "IG_02",
+      "duration_sec": 9.633424,
+      "h3_length": 243,
+      "h3_native_sec": 10.125,
+      "trim_to_sec": 9.633424,
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One ink-blue and burgundy room, furnished. Color is millwork, velvet, and stone, not swatches. Burgundy velvet bench, one brass pendant, a small side table, one artwork, the checker floor. No animals, no product cards.",
+      "hero_still": "Ink-blue door, checker marble floor, a burgundy velvet bench, one brass pendant.",
+      "room": "ink-blue room with velvet bench, brass pendant, and checker floor",
+      "furnishing": "Burgundy velvet bench, one brass pendant, a small side table, one artwork, the checker floor. No animals, no product cards.",
+      "cuts": [
+        1.734,
+        3.275,
+        4.817,
+        6.358,
+        7.899
+      ],
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 1.734,
+          "picture": "Wide or medium-wide view of the fully furnished room: ink-blue room with velvet bench, brass pendant, and checker floor."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 1.734,
+          "to_sec": 3.275,
+          "picture": "BEFORE to AFTER: square checker. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 3.275,
+          "to_sec": 4.817,
+          "picture": "BEFORE to AFTER: velvet. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 4.817,
+          "to_sec": 6.358,
+          "picture": "BEFORE to AFTER: pendant. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 6.358,
+          "to_sec": 7.899,
+          "picture": "BEFORE to AFTER: blue millwork. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 7.899,
+          "to_sec": 9.633,
+          "picture": "Return to the wider furnished room. Completed design: ink-blue room with velvet bench, brass pendant, and checker floor."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_009",
+      "reference": "IG_03",
+      "duration_sec": 11.978639,
+      "h3_length": 294,
+      "h3_native_sec": 12.25,
+      "trim_to_sec": 11.978639,
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One bathroom, furnished beyond the shower corner. Stone ledge, sheer linen, a stool or bench, one towel, soft side light. The shower is part of that room.",
+      "hero_still": "After: seamless warm microcement corner, one circular floor drain, soft side light.",
+      "room": "bathroom with shower, linen, and stone",
+      "furnishing": "Stone ledge, sheer linen, a stool or bench, one towel, soft side light. The shower is part of that room.",
+      "cuts": [
+        2.156,
+        4.073,
+        5.989,
+        7.906,
+        9.822
+      ],
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 2.156,
+          "picture": "Wide or medium-wide view of the fully furnished room: bathroom with shower, linen, and stone."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 2.156,
+          "to_sec": 4.073,
+          "picture": "BEFORE to AFTER: microcement corner. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 4.073,
+          "to_sec": 5.989,
+          "picture": "BEFORE to AFTER: circular drain. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 5.989,
+          "to_sec": 7.906,
+          "picture": "BEFORE to AFTER: stone ledge. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 7.906,
+          "to_sec": 9.822,
+          "picture": "BEFORE to AFTER: linen. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 9.822,
+          "to_sec": 11.979,
+          "picture": "Return to the wider furnished room. Completed design: bathroom with shower, linen, and stone."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_010",
+      "reference": "IG_04",
+      "duration_sec": 12.141179,
+      "h3_length": 294,
+      "h3_native_sec": 12.25,
+      "trim_to_sec": 12.141179,
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One kitchen footprint, furnished the same way in every state. Only finishes change. Island, stone or wood top as the state requires, linen stools, one bowl, a window, a brass faucet. Stools stay linen, not woven substitutes.",
+      "hero_still": "The transitional state: dark-stained oak island, pale stone top, linen stools, one brass faucet.",
+      "room": "fully furnished kitchen",
+      "furnishing": "Island, stone or wood top as the state requires, linen stools, one bowl, a window, a brass faucet. Stools stay linen, not woven substitutes.",
+      "cuts": [
+        2.185,
+        4.128,
+        6.071,
+        8.013,
+        9.956
+      ],
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 2.185,
+          "picture": "Wide or medium-wide view of the fully furnished room: fully furnished kitchen."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 2.185,
+          "to_sec": 4.128,
+          "picture": "BEFORE to AFTER: stained oak island. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 4.128,
+          "to_sec": 6.071,
+          "picture": "BEFORE to AFTER: stone top. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 6.071,
+          "to_sec": 8.013,
+          "picture": "BEFORE to AFTER: transitional cabinets. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 8.013,
+          "to_sec": 9.956,
+          "picture": "BEFORE to AFTER: brass faucet. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 9.956,
+          "to_sec": 12.141,
+          "picture": "Return to the wider furnished room. Completed design: fully furnished kitchen."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_011",
+      "reference": "IG_05",
+      "duration_sec": 12.094739,
+      "h3_length": 294,
+      "h3_native_sec": 12.25,
+      "trim_to_sec": 12.094739,
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One bathroom, furnished. The three controls are a detail of that room. Stone vanity, sheer linen, a bench or stool, towel, fluted ceiling, the dark linear slot. Exactly three brass controls.",
+      "hero_still": "Fluted plaster ceiling with a dark linear slot, sheer linen, stone vanity, three small brass controls.",
+      "room": "bathroom with vanity, linen, and fluted ceiling",
+      "furnishing": "Stone vanity, sheer linen, a bench or stool, towel, fluted ceiling, the dark linear slot. Exactly three brass controls.",
+      "cuts": [
+        2.177,
+        4.112,
+        6.047,
+        7.983,
+        9.918
+      ],
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 2.177,
+          "picture": "Wide or medium-wide view of the fully furnished room: bathroom with vanity, linen, and fluted ceiling."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 2.177,
+          "to_sec": 4.112,
+          "picture": "BEFORE to AFTER: ceiling slot. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 4.112,
+          "to_sec": 6.047,
+          "picture": "BEFORE to AFTER: linear drain. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 6.047,
+          "to_sec": 7.983,
+          "picture": "BEFORE to AFTER: three brass controls. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 7.983,
+          "to_sec": 9.918,
+          "picture": "BEFORE to AFTER: stone ledge. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 9.918,
+          "to_sec": 12.095,
+          "picture": "Return to the wider furnished room. Completed design: bathroom with vanity, linen, and fluted ceiling."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    },
+    {
+      "post": "POST_012",
+      "reference": "IG_06",
+      "duration_sec": 10.260363,
+      "h3_length": 260,
+      "h3_native_sec": 10.833333,
+      "trim_to_sec": 10.260363,
+      "rhythm": "SIX_SHOT_V2. Establishing, four matched before-to-after details, final furnished reveal.",
+      "camera": "Locked camera on every detail pair. A few inches of push only on the establishing shot. No orbit. No furniture travel.",
+      "concept": "One bathroom at the window. The sink is a detail inside the furnished room. Honed marble sink, arc spout, herringbone at the stone edge, a mirror or shelf with one vessel, window light, a stool just out of the tight frame but present in the wide.",
+      "hero_still": "Honed marble sink, brushed-nickel arc spout, a thin continuous stream, window light, herringbone at the edge.",
+      "room": "bath at the window, herringbone meeting stone",
+      "furnishing": "Honed marble sink, arc spout, herringbone at the stone edge, a mirror or shelf with one vessel, window light, a stool just out of the tight frame but present in the wide.",
+      "cuts": [
+        1.847,
+        3.489,
+        5.13,
+        6.772,
+        8.413
+      ],
+      "sequence": [
+        {
+          "shot": 1,
+          "name": "ESTABLISHING",
+          "from_sec": 0.0,
+          "to_sec": 1.847,
+          "picture": "Wide or medium-wide view of the fully furnished room: bath at the window, herringbone meeting stone."
+        },
+        {
+          "shot": 2,
+          "name": "DETAIL_1",
+          "from_sec": 1.847,
+          "to_sec": 3.489,
+          "picture": "BEFORE to AFTER: arc spout. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 3,
+          "name": "DETAIL_2",
+          "from_sec": 3.489,
+          "to_sec": 5.13,
+          "picture": "BEFORE to AFTER: water stream into basin. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 4,
+          "name": "DETAIL_3",
+          "from_sec": 5.13,
+          "to_sec": 6.772,
+          "picture": "BEFORE to AFTER: single lever. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 5,
+          "name": "DETAIL_4",
+          "from_sec": 6.772,
+          "to_sec": 8.413,
+          "picture": "BEFORE to AFTER: herringbone edge. Same crop, same camera. Only that element changes."
+        },
+        {
+          "shot": 6,
+          "name": "FINAL_REVEAL",
+          "from_sec": 8.413,
+          "to_sec": 10.26,
+          "picture": "Return to the wider furnished room. Completed design: bath at the window, herringbone meeting stone."
+        }
+      ],
+      "format": "SIX_SHOT_V2"
+    }
+  ],
+  "creative_direction": {
+    "law": "Everything stays physically real. The entire space becomes better designed.",
+    "message": "Vesta can furnish, design, and refine the entire home. Detail transformations prove the intelligence behind the overall design.",
+    "format": [
+      "FULLY FURNISHED HOME",
+      "HYPER-FOCUSED DESIGN DETAILS",
+      "BEFORE to AFTER TRANSFORMATIONS",
+      "FULL-ROOM PAYOFF"
+    ],
+    "rhythm": [
+      "OPEN: the completed furnished room",
+      "DETAIL 1 BEFORE to AFTER",
+      "DETAIL 2 BEFORE to AFTER",
+      "DETAIL 3 BEFORE to AFTER",
+      "DETAIL 4 BEFORE to AFTER",
+      "RETURN: wider furnished reveal"
+    ],
+    "room_requirement": "Every room is fully resolved: seating or sleeping, tables, rugs, lighting, art, cabinetry, textiles, shelving, and a few accessories. Correctly scaled, architecturally appropriate, premium, intentional, realistic, spatially coherent. Not overcrowded.",
+    "forbid": [
+      "empty architectural shells",
+      "fixture-only frames",
+      "hardware-catalog framing",
+      "details from unrelated rooms",
+      "sacrificing the whole-room composition"
+    ],
+    "transformation": "Hard architectural cut, masked reveal, or a dissolve only where geometry aligns. No architecture morph.",
+    "motion": "Restrained. A few inches of push or a locked cut. No orbit, no wobble, no exposure drift.",
+    "delivered_detail_holds": {
+      "POST_005": "Final master is the lantern detail hold of the approved evening still, not the six-shot furnished sequence.",
+      "POST_009": "Final master is the microcement corner hold, not the six-shot furnished bathroom.",
+      "POST_011": "Final master is the three-control detail hold, not the six-shot furnished bathroom."
+    }
+  },
+  "creative_format": {
+    "locked": true,
+    "version": "SIX_SHOT_V2",
+    "law": "Everything stays physically real. The entire space becomes better designed.",
+    "message": "Vesta can furnish, design, and refine the entire home. The detail transformations prove the intelligence behind the overall design.",
+    "unit": "Every post is one coherent, fully furnished room.",
+    "shots": [
+      {
+        "shot": 1,
+        "name": "ESTABLISHING",
+        "picture": "Wide or medium-wide view of the fully furnished room.",
+        "share": [
+          0.15,
+          0.2
+        ]
+      },
+      {
+        "shot": 2,
+        "name": "DETAIL_1",
+        "picture": "BEFORE to AFTER. One design element.",
+        "share": [
+          0.15,
+          0.18
+        ]
+      },
+      {
+        "shot": 3,
+        "name": "DETAIL_2",
+        "picture": "BEFORE to AFTER. One design element.",
+        "share": [
+          0.15,
+          0.18
+        ]
+      },
+      {
+        "shot": 4,
+        "name": "DETAIL_3",
+        "picture": "BEFORE to AFTER. One design element.",
+        "share": [
+          0.15,
+          0.18
+        ]
+      },
+      {
+        "shot": 5,
+        "name": "DETAIL_4",
+        "picture": "BEFORE to AFTER. One design element.",
+        "share": [
+          0.15,
+          0.18
+        ]
+      },
+      {
+        "shot": 6,
+        "name": "FINAL_REVEAL",
+        "picture": "Return to the wider furnished room showing the completed design.",
+        "share": [
+          0.15,
+          0.2
+        ]
+      }
+    ],
+    "pacing_share": [
+      0.18,
+      0.16,
+      0.16,
+      0.16,
+      0.16,
+      0.18
+    ],
+    "within_detail": "BEFORE is the first 30 percent of the detail shot and is immediately readable. A hard match cut. AFTER holds the remaining 70 percent.",
+    "transition": {
+      "preferred": "Very short matched transformation. Match cut.",
+      "matched_geometry": [
+        "same camera position",
+        "same crop",
+        "same focal length",
+        "same perspective",
+        "same object location",
+        "same lighting direction",
+        "same architecture"
+      ],
+      "changes": "Only the intended design element.",
+      "forbid": [
+        "long crossfade",
+        "zoom blur",
+        "spin",
+        "swipe",
+        "morph of the whole room",
+        "moving furniture during the detail transition"
+      ]
+    },
+    "continuity": "All six shots belong to the same room. Furniture, architecture, windows, flooring, lighting, and material palette stay spatially coherent.",
+    "furnishing": "Fully furnished and restrained: sofa or bed or bench, table, rug or textile, lighting, one or two art or decor objects, cabinetry where the room needs it. No clutter.",
+    "astra_creative_qc": [
+      "FULLY_FURNISHED_ROOM",
+      "SAME_ROOM_CONTINUITY",
+      "DETAIL_FOCUS",
+      "BEFORE_AFTER_CLARITY",
+      "TRANSITION_ALIGNMENT",
+      "TRANSFORMATION_PAYOFF",
+      "FINAL_WIDE_REVEAL",
+      "PHOTOREALISM",
+      "REFERENCE_EDITING_LANGUAGE"
+    ],
+    "astra_rule": "Any MAJOR failure means the V2 post is not final.",
+    "pilot": "POST_005",
+    "template_rule": "Once POST_005 V2 passes Astra creative QC, its editing grammar is the production template for the other eleven posts.",
+    "pilot_status": {
+      "post": "POST_005",
+      "file": "/Users/jonathanbemenu/vesta-h3-runpod-worker/production/12post_20260930/delivery/POST_005/v2/POST_005_v2_final.mp4",
+      "ASTRA_DECISION": "FAIL",
+      "MAJOR": 5,
+      "CREATIVE_FINAL": false,
+      "template_released": false
+    }
+  },
+  "masters": {
+    "POST_005": {
+      "path": "/Users/jonathanbemenu/vesta-h3-runpod-worker/production/12post_20260930/delivery/POST_005/watermark/POST_005_final.mp4",
+      "TECHNICAL_FINAL": true,
+      "CREATIVE_FINAL": false,
+      "SUPERSEDED_BY": "SIX_SHOT_V2",
+      "note": "Old master kept. V2 is a new file. Do not overwrite this master until V2 is approved."
+    },
+    "POST_009": {
+      "path": "/Users/jonathanbemenu/vesta-h3-runpod-worker/production/12post_20260930/delivery/POST_009/watermark/POST_009_final.mp4",
+      "TECHNICAL_FINAL": true,
+      "CREATIVE_FINAL": false,
+      "SUPERSEDED_BY": "SIX_SHOT_V2",
+      "note": "Old master kept. V2 is a new file. Do not overwrite this master until V2 is approved."
+    },
+    "POST_011": {
+      "path": "/Users/jonathanbemenu/vesta-h3-runpod-worker/production/12post_20260930/delivery/POST_011/watermark/POST_011_final.mp4",
+      "TECHNICAL_FINAL": true,
+      "CREATIVE_FINAL": false,
+      "SUPERSEDED_BY": "SIX_SHOT_V2",
+      "note": "Old master kept. V2 is a new file. Do not overwrite this master until V2 is approved."
+    }
+  }
+}

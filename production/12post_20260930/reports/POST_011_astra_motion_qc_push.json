@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "response_id": "resp_09835733b8b503f5016abdf041712087d19b487a71f5f72870",
+  "parsed": {
+    "POST": "POST_011",
+    "DECISION": "PASS",
+    "CRITICAL": 0,
+    "MAJOR": 0,
+    "MOTION_QC_PASS": true,
+    "LIGHTING_STABILITY": "PASS",
+    "CAMERA_STABILITY": "PASS",
+    "ARCHITECTURE_PERMANENCE": "PASS",
+    "DEFECTS": []
+  },
+  "text": "{\"POST\":\"POST_011\",\"DECISION\":\"PASS\",\"CRITICAL\":0,\"MAJOR\":0,\"MOTION_QC_PASS\":true,\"LIGHTING_STABILITY\":\"PASS\",\"CAMERA_STABILITY\":\"PASS\",\"ARCHITECTURE_PERMANENCE\":\"PASS\",\"DEFECTS\":[]}"
+}
