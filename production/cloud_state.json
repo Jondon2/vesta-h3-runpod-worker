@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-03T14:01:17Z",
+  "updated_at": "2026-10-03T17:35:42Z",
   "controller": {
     "state": "ACTIVE",
     "stop_requested": false,
-    "iteration": 0,
+    "iteration": 1,
     "max_gpu_workers": 1,
     "required_secret_names": [
       "RUNPOD_API_KEY",
@@ -46,13 +46,13 @@
       "post_id": "POST_001",
       "room": "limewashed corridor opening onto a cream salon with sofa, table, and rug",
       "target_duration": 13.325397,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_B",
       "pairs": [
         {
           "name": "herringbone floor",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -66,7 +66,7 @@
         },
         {
           "name": "oak door",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -80,7 +80,7 @@
         },
         {
           "name": "limewash",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -94,7 +94,7 @@
         },
         {
           "name": "salon seating",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -114,19 +114,21 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     },
     {
       "post_id": "POST_002",
       "room": "sitting room with boucle sofa, oak table, limestone, and wool rug",
       "target_duration": 6.66127,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_B",
       "pairs": [
         {
           "name": "fluted plaster",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -140,7 +142,7 @@
         },
         {
           "name": "stone finial",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -154,7 +156,7 @@
         },
         {
           "name": "boucle",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -168,7 +170,7 @@
         },
         {
           "name": "blackened oak floor",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -188,19 +190,21 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     },
     {
       "post_id": "POST_003",
       "room": "indoor pool court with a daybed, a throw, and one lantern",
       "target_duration": 10.724762,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_B",
       "pairs": [
         {
           "name": "still water",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -214,7 +218,7 @@
         },
         {
           "name": "single lantern",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -228,7 +232,7 @@
         },
         {
           "name": "travertine edge",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -242,7 +246,7 @@
         },
         {
           "name": "daylight slot",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -262,19 +266,21 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     },
     {
       "post_id": "POST_004",
       "room": "architectural opening into a furnished room",
       "target_duration": 15.066893,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_B",
       "pairs": [
         {
           "name": "carved cedar",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -288,7 +294,7 @@
         },
         {
           "name": "pierced brass",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -302,7 +308,7 @@
         },
         {
           "name": "lime plaster",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -316,7 +322,7 @@
         },
         {
           "name": "indigo timber",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -336,13 +342,15 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     },
     {
       "post_id": "POST_005",
       "room": "evening bedroom with wool daybed, oak chest, lantern, and night window",
       "target_duration": 10.330023,
-      "creative_status": "QC_REQUIRED",
+      "creative_status": "BLOCKED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_A",
       "pairs": [
@@ -419,8 +427,8 @@
       "4k_status": "WAIT",
       "final_qc_status": "WAIT",
       "final_ready": false,
-      "last_error": "ASTRA_HTTP_429: candidate preserved; retry QC only, do not rerender.",
-      "updated_at": "2026-10-03T11:45:55Z",
+      "last_error": "MISSING_GITHUB_SECRET: OPENAI_API_KEY",
+      "updated_at": "2026-10-03T17:35:42Z",
       "render_specs": {
         "WOOL": {
           "mode": "wool",
@@ -436,13 +444,13 @@
       "post_id": "POST_006",
       "room": "afternoon living room with cream sofa, walnut table, and wool rug",
       "target_duration": 11.374921,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_C",
       "pairs": [
         {
           "name": "hard sun rectangle",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -456,7 +464,7 @@
         },
         {
           "name": "table leg",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -470,7 +478,7 @@
         },
         {
           "name": "sofa edge",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -484,7 +492,7 @@
         },
         {
           "name": "wool",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -504,19 +512,21 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     },
     {
       "post_id": "POST_007",
       "room": "kitchen with island, stools, shelf, and linear light",
       "target_duration": 10.794422,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_C",
       "pairs": [
         {
           "name": "oak-to-stone joint",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -530,7 +540,7 @@
         },
         {
           "name": "lit reveal",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -544,7 +554,7 @@
         },
         {
           "name": "flush pull",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -558,7 +568,7 @@
         },
         {
           "name": "vessels",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -578,19 +588,21 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     },
     {
       "post_id": "POST_008",
       "room": "ink-blue room with velvet bench, brass pendant, and checker floor",
       "target_duration": 9.633424,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_C",
       "pairs": [
         {
           "name": "square checker",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -604,7 +616,7 @@
         },
         {
           "name": "velvet",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -618,7 +630,7 @@
         },
         {
           "name": "pendant",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -632,7 +644,7 @@
         },
         {
           "name": "blue millwork",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -652,19 +664,21 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     },
     {
       "post_id": "POST_009",
       "room": "bathroom with shower, linen, and stone",
       "target_duration": 11.978639,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_D",
       "pairs": [
         {
           "name": "microcement corner",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -678,7 +692,7 @@
         },
         {
           "name": "circular drain",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -692,7 +706,7 @@
         },
         {
           "name": "stone ledge",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -706,7 +720,7 @@
         },
         {
           "name": "linen",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -726,19 +740,21 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     },
     {
       "post_id": "POST_010",
       "room": "fully furnished kitchen",
       "target_duration": 12.141179,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_D",
       "pairs": [
         {
           "name": "stained oak island",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -752,7 +768,7 @@
         },
         {
           "name": "stone top",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -766,7 +782,7 @@
         },
         {
           "name": "transitional cabinets",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -780,7 +796,7 @@
         },
         {
           "name": "brass faucet",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -800,19 +816,21 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     },
     {
       "post_id": "POST_011",
       "room": "bathroom with vanity, linen, and fluted ceiling",
       "target_duration": 12.094739,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_D",
       "pairs": [
         {
           "name": "ceiling slot",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -826,7 +844,7 @@
         },
         {
           "name": "linear drain",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -840,7 +858,7 @@
         },
         {
           "name": "three brass controls",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -854,7 +872,7 @@
         },
         {
           "name": "stone ledge",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -874,19 +892,21 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     },
     {
       "post_id": "POST_012",
       "room": "bath at the window, herringbone meeting stone",
       "target_duration": 10.260363,
-      "creative_status": "PREPARE",
+      "creative_status": "RENDER_REQUIRED",
       "technical_status": "NOT_STARTED",
       "lane": "LANE_D",
       "pairs": [
         {
           "name": "arc spout",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -900,7 +920,7 @@
         },
         {
           "name": "water stream into basin",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -914,7 +934,7 @@
         },
         {
           "name": "single lever",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -928,7 +948,7 @@
         },
         {
           "name": "herringbone edge",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -948,7 +968,9 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": null,
-      "updated_at": "2026-10-03T11:45:55Z"
+      "updated_at": "2026-10-03T17:35:42Z",
+      "preparation_status": "PASS",
+      "next_action": "Create an approved render spec before GPU dispatch"
     }
   ]
 }
