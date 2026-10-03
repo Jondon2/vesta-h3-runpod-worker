@@ -54,7 +54,8 @@ jobs:
 
       - name: Install RunPod CLI for bounded render iterations
         run: |
-          curl -fsSL https://cli.runpod.net | bash
+          curl -fsSL https://cli.runpod.net -o /tmp/runpodctl-install.sh
+          sudo bash /tmp/runpodctl-install.sh
           echo "$HOME/.runpod/bin" >> "$GITHUB_PATH"
 
       - name: Run one production iteration
