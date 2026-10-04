@@ -34,6 +34,27 @@ STATE_NAMES = {
     "MOTION_RUNNING", "MOTION_QC", "UPSCALE", "WATERMARK", "FINAL_QC",
     "FINAL_READY", "BLOCKED",
 }
+PAIR_REQUIRED_GATES = {
+    "GLASS": [
+        "PHOTOREALISM", "MATERIAL_REALISM", "ROOM_MATCH", "TRANSMISSION_REALISM",
+        "REFLECTION_INTEGRATION", "BEFORE_AFTER_CLARITY", "DETAIL_FOCUS", "SAME_GEOMETRY",
+        "TRANSITION_ALIGNMENT",
+    ],
+    "LANTERN": [
+        "PHOTOREALISM", "MATERIAL_REALISM", "CONSTRUCTION_REALISM", "PAPER_REALISM",
+        "RIB_REALISM", "TRANSMITTED_LIGHT_VARIATION", "REFLECTION_STATE_MATCH",
+        "BEFORE_AFTER_CLARITY", "DETAIL_FOCUS", "ROOM_MATCH", "SAME_GEOMETRY",
+        "TRANSITION_ALIGNMENT",
+    ],
+    "WOOL": [
+        "PHOTOREALISM", "MATERIAL_REALISM", "ROOM_MATCH", "DETAIL_FOCUS",
+        "BEFORE_AFTER_CLARITY", "SAME_GEOMETRY", "TRANSITION_ALIGNMENT",
+    ],
+    "OAK": [
+        "PHOTOREALISM", "MATERIAL_REALISM", "ROOM_MATCH", "DETAIL_FOCUS",
+        "BEFORE_AFTER_CLARITY", "SAME_GEOMETRY", "TRANSITION_ALIGNMENT",
+    ],
+}
 
 
 def now() -> datetime:
@@ -274,7 +295,8 @@ def run_existing_astra(state: dict[str, Any], post: dict[str, Any], pair: dict[s
         return
     critical, major = int(parsed.get("CRITICAL", 0)), int(parsed.get("MAJOR", 0))
     pair.update({"critical": critical, "major": major, "qc_report": str(report.relative_to(ROOT)), "next_qc_retry_at": None})
-    if parsed.get(f"{pair['name']}_PAIR_QC") == "PASS" and critical == 0 and major == 0:
+    named_gates_pass = all(parsed.get(gate) == "PASS" for gate in PAIR_REQUIRED_GATES[pair["name"]])
+    if parsed.get(f"{pair['name']}_PAIR_QC") == "PASS" and named_gates_pass and critical == 0 and major == 0:
         pair.update({"qc_status": "PASS", "locked": True})
         post["last_error"] = None
     else:

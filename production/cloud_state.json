@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T02:11:25Z",
+  "updated_at": "2026-10-04T04:53:02Z",
   "controller": {
     "state": "ACTIVE",
     "stop_requested": false,
@@ -371,13 +371,13 @@
             "volume_path": "artifacts/POST_005/LANTERN/stills_lantern_r13_20261003_remote"
           },
           "qc_report": null,
-          "rate_limit_count": 1,
-          "next_qc_retry_at": "2026-10-03T11:50:55Z",
+          "rate_limit_count": 2,
+          "next_qc_retry_at": "2026-10-04T04:58:02Z",
           "last_error": "ASTRA_HTTP_429: candidate preserved; retry QC only, do not rerender."
         },
         {
           "name": "WOOL",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -391,7 +391,7 @@
         },
         {
           "name": "OAK",
-          "prepared": false,
+          "prepared": true,
           "rendered": false,
           "qc_status": "PENDING",
           "locked": false,
@@ -427,8 +427,8 @@
       "4k_status": "WAIT",
       "final_qc_status": "WAIT",
       "final_ready": false,
-      "last_error": "MISSING_GITHUB_SECRET: OPENAI_API_KEY",
-      "updated_at": "2026-10-04T02:11:25Z",
+      "last_error": "MISSING_GITHUB_SECRET: OPENAI_API_KEY; local R13 retry returned ASTRA_HTTP_429 and remains preserved.",
+      "updated_at": "2026-10-04T04:53:02Z",
       "render_specs": {
         "WOOL": {
           "mode": "wool",

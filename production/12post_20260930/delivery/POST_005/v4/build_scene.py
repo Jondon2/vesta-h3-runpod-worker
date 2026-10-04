@@ -53,8 +53,9 @@ def wood_material(name, darken, rough_mul, specular):
     bsdf = nt.nodes.new("ShaderNodeBsdfPrincipled")
     bsdf.location = (280, 0)
     link(nt, bsdf.outputs["BSDF"], out.inputs["Surface"])
-    # One plank-photo repeat across a drawer face. Per-part UV offsets break the knot repeat.
-    mp = mapping(nt, (1.0, 1.0, 1.0), (-980, 80))
+    # The selected texture is mapped through unique per-part UV islands below.
+    # This preserves longitudinal grain while ensuring no drawer repeats a knot.
+    mp = mapping(nt, (0.58, 0.92, 1.0), (-980, 80))
     diff = tex_node(nt, ASSETS / "oak_wood_planks/diff.jpg", "sRGB", (-620, 180))
     rough = tex_node(nt, ASSETS / "oak_wood_planks/rough.jpg", "Non-Color", (-620, -40))
     nor = tex_node(nt, ASSETS / "oak_wood_planks/nor.jpg", "Non-Color", (-620, -260))
@@ -62,7 +63,7 @@ def wood_material(name, darken, rough_mul, specular):
         link(nt, mp.outputs["Vector"], n.inputs["Vector"])
     hsv = nt.nodes.new("ShaderNodeHueSaturation")
     hsv.location = (-280, 160)
-    hsv.inputs["Hue"].default_value = 0.48
+    hsv.inputs["Hue"].default_value = 0.5
     hsv.inputs["Saturation"].default_value = darken[0]
     hsv.inputs["Value"].default_value = darken[1]
     link(nt, diff.outputs["Color"], hsv.inputs["Color"])
@@ -92,7 +93,7 @@ def wood_material(name, darken, rough_mul, specular):
     link(nt, mul2.outputs["Value"], bsdf.inputs["Roughness"])
     nmap = nt.nodes.new("ShaderNodeNormalMap")
     nmap.location = (-40, -240)
-    nmap.inputs["Strength"].default_value = 0.28
+    nmap.inputs["Strength"].default_value = 0.42
     link(nt, nor.outputs["Color"], nmap.inputs["Color"])
     link(nt, nmap.outputs["Normal"], bsdf.inputs["Normal"])
     bsdf.inputs["Specular IOR Level"].default_value = specular
@@ -120,7 +121,7 @@ def cloth_material(name, folder, files, color, normal_strength, uv_scale, sheen)
     link(nt, warp.outputs["Color"], scale_w.inputs["Vector"])
     link(nt, mp.outputs["Vector"], add.inputs[0])
     link(nt, scale_w.outputs["Vector"], add.inputs[1])
-    diff = tex_node(nt, ASSETS / folder / files[0], "Non-Color", (-620, 240))
+    diff = tex_node(nt, ASSETS / folder / files[0], "sRGB", (-620, 240))
     rough = tex_node(nt, ASSETS / folder / files[1], "Non-Color", (-620, 20))
     nor = tex_node(nt, ASSETS / folder / files[2], "Non-Color", (-620, -220))
     for n in (diff, rough, nor):
@@ -350,14 +351,14 @@ def build():
     bg.inputs["Color"].default_value = (0.01, 0.015, 0.03, 1)
     bg.inputs["Strength"].default_value = 0.04
 
-    oak_pale = wood_material("oak_pale", (0.7, 1.22), 1.18, 0.18)
-    oak_dark = wood_material("oak_dark", (0.72, 0.48), 0.7, 0.32)
+    oak_pale = wood_material("oak_pale", (0.66, 0.98), 1.10, 0.16)
+    oak_dark = wood_material("oak_dark", (0.76, 0.74), 0.82, 0.26)
     floor_mat = wood_material("floor_oak", (0.62, 0.7), 0.95, 0.22)
     linen = cloth_material(
         "linen",
         "rough_linen",
         ("diff.jpg", "rough.jpg", "nor.jpg"),
-        (0.78, 0.72, 0.62),
+        (0.72, 0.66, 0.55),
         0.18,
         9.0,
         0.04,
@@ -366,10 +367,10 @@ def build():
         "wool",
         "boucle",
         ("terry_diff.jpg", "terry_rough.jpg", "terry_nor.jpg"),
-        (0.62, 0.46, 0.34),
-        0.32,
-        11.0,
-        0.48,
+        (0.79, 0.71, 0.58),
+        0.42,
+        13.0,
+        0.56,
     )
     # BEFORE: ordinary glazing. Softer transmission, broader reflection.
     glass_plain = glass_material("glass_plain", 0.055, 1.45, coat=0.55, coat_rough=0.46, specular=0.04)
@@ -482,17 +483,33 @@ def build():
     glass_l = pane("glass_l", 0.78)
     glass_r = pane("glass_r", 1.72)
 
-    # Chest, one mesh family, material swapped
+    # Chest: one built, multi-part cabinet. All timber shares the material swap
+    # while drawer reveals, rails, feet, and hardware remain identical in both states.
     chest_parts = []
-    body = add_cube("chest_body", (1.22, 2.55, 0.38), (1.16, 0.5, 0.7), oak_dark)
-    top = add_cube("chest_top", (1.22, 2.52, 0.745), (1.2, 0.54, 0.035), oak_dark)
-    d1 = add_cube("drawer_1", (1.22, 2.28, 0.56), (1.02, 0.02, 0.26), oak_dark)
-    d2 = add_cube("drawer_2", (1.22, 2.28, 0.26), (1.02, 0.02, 0.26), oak_dark)
+    def chest_cube(name, loc, dims):
+        item = add_cube(name, loc, dims, oak_dark)
+        item.modifiers["Bevel"].width = 0.010
+        item.modifiers["Bevel"].segments = 3
+        chest_parts.append(item)
+        return item
+    body = chest_cube("chest_body", (1.22, 2.55, 0.39), (1.16, 0.50, 0.68))
+    top = chest_cube("chest_top", (1.22, 2.52, 0.755), (1.22, 0.54, 0.040))
+    d1 = chest_cube("drawer_1", (1.22, 2.286, 0.565), (0.98, 0.048, 0.238))
+    d2 = chest_cube("drawer_2", (1.22, 2.286, 0.275), (0.98, 0.048, 0.238))
+    # Narrow rails make the two drawers read as fitted joinery rather than a
+    # texture on a solid block. The shadow gaps are physical recesses.
+    for drawer, z in (("upper", 0.565), ("lower", 0.275)):
+        chest_cube(f"drawer_{drawer}_rail_top", (1.22, 2.252, z + 0.132), (1.055, 0.026, 0.022))
+        chest_cube(f"drawer_{drawer}_rail_bottom", (1.22, 2.252, z - 0.132), (1.055, 0.026, 0.022))
+        chest_cube(f"drawer_{drawer}_stile_l", (0.685, 2.252, z), (0.022, 0.026, 0.270))
+        chest_cube(f"drawer_{drawer}_stile_r", (1.755, 2.252, z), (0.022, 0.026, 0.270))
+    for name, x in (("foot_l", 0.76), ("foot_r", 1.68)):
+        chest_cube(name, (x, 2.68, 0.065), (0.10, 0.10, 0.13))
     h1 = add_cube("handle_1", (1.22, 2.26, 0.56), (0.11, 0.015, 0.012), black_metal)
     h2 = add_cube("handle_2", (1.22, 2.26, 0.26), (0.11, 0.015, 0.012), black_metal)
-    h1.hide_render = True
-    h2.hide_render = True
-    chest_parts = [body, top, d1, d2]
+    h1.modifiers["Bevel"].width = h2.modifiers["Bevel"].width = 0.006
+    drawer_recess = add_cube("drawer_recess", (1.22, 2.316, 0.42), (1.06, 0.008, 0.57), black_metal)
+    drawer_recess.modifiers["Bevel"].width = 0.001
     for ob in chest_parts:
         bpy.ops.object.select_all(action="DESELECT")
         ob.select_set(True)
@@ -501,41 +518,43 @@ def build():
         bpy.ops.mesh.select_all(action="SELECT")
         bpy.ops.uv.cube_project(cube_size=1.15)
         bpy.ops.object.mode_set(mode="OBJECT")
-        shift = {
-            "chest_body": (0.04, 0.02),
-            "chest_top": (0.52, 0.06),
-            "drawer_1": (0.02, 0.58),
-            "drawer_2": (0.55, 0.50),
-        }[ob.name]
+        seed = sum(ord(letter) for letter in ob.name)
+        shift = ((seed * 0.137) % 0.61, (seed * 0.071) % 0.63)
         uv = ob.data.uv_layers.active.data
         for loop in uv:
-            # A different slice of the plank photo on each part. Grain direction stays.
-            loop.uv.x = loop.uv.x * 0.42 + shift[0]
-            loop.uv.y = loop.uv.y * 0.36 + shift[1]
+            # Each built part takes a distinct wood slice; grain stays aligned.
+            loop.uv.x = loop.uv.x * 0.38 + shift[0]
+            loop.uv.y = loop.uv.y * 0.31 + shift[1]
 
-    # Daybed
+    # Daybed and a physically draped throw. The collision mattress plus a real
+    # pinned back edge prevent the former stiff elevated-ramp silhouette.
     frame = add_cube("bed_frame", (0.15, 1.55, 0.22), (0.95, 1.7, 0.28), floor_mat)
-    bpy.ops.mesh.primitive_grid_add(x_subdivisions=48, y_subdivisions=64, size=1, location=(0.15, 1.50, 0.70))
+    mattress = add_cube("mattress", (0.15, 1.55, 0.47), (0.89, 1.60, 0.18), linen)
+    mattress.modifiers["Bevel"].width = 0.035
+    mattress.modifiers["Bevel"].segments = 4
+    mattress_hit = mattress.modifiers.new("Collision", "COLLISION")
+    mattress_hit.settings.thickness_outer = 0.004
+    bpy.ops.mesh.primitive_grid_add(x_subdivisions=56, y_subdivisions=76, size=1, location=(0.15, 1.47, 0.84))
     throw = bpy.context.active_object
     throw.name = "throw"
     throw.scale = (1.15, 1.85, 1.0)
     bpy.ops.object.transform_apply(scale=True)
     for v in throw.data.vertices:
-        v.co.z += 0.028 * math.sin(v.co.y * 9.0) + 0.016 * math.sin(v.co.x * 13.0 + v.co.y * 4.0)
+        v.co.z += 0.032 * math.sin(v.co.y * 8.0) + 0.014 * math.sin(v.co.x * 11.0 + v.co.y * 3.0)
     pin = throw.vertex_groups.new(name="Pin")
     for v in throw.data.vertices:
-        if v.co.y > 2.05:
+        if v.co.y > 0.62:
             pin.add([v.index], 1.0, "REPLACE")
     bed_hit = frame.modifiers.new("Collision", "COLLISION")
     bed_hit.settings.thickness_outer = 0.004
     bed_hit.settings.thickness_inner = 0.002
     cloth = throw.modifiers.new("Cloth", "CLOTH")
     cloth.settings.quality = 8
-    cloth.settings.mass = 0.35
-    cloth.settings.tension_stiffness = 3
-    cloth.settings.compression_stiffness = 15
-    cloth.settings.shear_stiffness = 3
-    cloth.settings.bending_stiffness = 0.35
+    cloth.settings.mass = 0.42
+    cloth.settings.tension_stiffness = 4
+    cloth.settings.compression_stiffness = 22
+    cloth.settings.shear_stiffness = 4
+    cloth.settings.bending_stiffness = 0.48
     cloth.settings.air_damping = 1.0
     cloth.settings.vertex_group_mass = "Pin"
     cloth.point_cache.frame_start = 1
@@ -550,6 +569,9 @@ def build():
     bpy.ops.ptcache.bake_all(bake=True)
     scene.frame_set(18)
     bpy.ops.object.modifier_apply(modifier="Cloth")
+    subdiv = throw.modifiers.new("Soft weave subdivision", "SUBSURF")
+    subdiv.levels = 1
+    subdiv.render_levels = 1
     solid = throw.modifiers.new("Thickness", "SOLIDIFY")
     solid.thickness = 0.002
     solid.offset = 0.0
@@ -798,8 +820,8 @@ def build():
         cams[name] = cam
         return cam
     camera("cam_lantern", (0.45, 1.75, 1.15), (1.18, 2.5, 0.88), 32)
-    camera("cam_wool", (1.55, 1.15, 0.95), (0.25, 1.65, 0.42), 28)
-    camera("cam_oak", (1.22, 1.25, 0.78), (1.22, 2.45, 0.5), 42)
+    camera("cam_wool", (2.05, 0.48, 1.18), (0.30, 1.58, 0.52), 34)
+    camera("cam_oak", (1.22, 0.62, 0.98), (1.22, 2.43, 0.48), 34)
     camera("cam_glass", (1.2, 1.55, 1.3), (1.25, 3.3, 1.65), 32)
 
     scene["chest_parts"] = [o.name for o in chest_parts]
