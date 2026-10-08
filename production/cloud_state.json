@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-08T06:26:31Z",
+  "updated_at": "2026-10-08T13:47:36Z",
   "controller": {
     "state": "ACTIVE",
     "stop_requested": false,
-    "iteration": 21,
+    "iteration": 22,
     "max_gpu_workers": 1,
     "required_secret_names": [
       "RUNPOD_API_KEY",
@@ -428,7 +428,7 @@
       "final_qc_status": "WAIT",
       "final_ready": false,
       "last_error": "MISSING_GITHUB_SECRET: OPENAI_API_KEY",
-      "updated_at": "2026-10-08T06:26:31Z",
+      "updated_at": "2026-10-08T13:47:36Z",
       "render_specs": {
         "WOOL": {
           "mode": "wool",
